@@ -17,10 +17,10 @@ class CreateEventInstancesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
-            $table->date('date_start');
-            $table->date('date_end');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->integer('participants');
-            $table->tinyInteger('happended');
+            $table->tinyInteger('happened');
             $table->bigInteger('event_id');
         });
     }
