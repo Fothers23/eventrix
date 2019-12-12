@@ -20,7 +20,7 @@ class CreateLeadScoresTable extends Migration
             $table->integer('value');
             $table->integer('sector');
             $table->integer('proj_max_capacity');
-            $table->integer('ptoj_exhibition');
+            $table->integer('proj_exhibition');
             $table->integer('proj_break_outs');
             $table->string('preferred_month');
             $table->integer('year_interval');
