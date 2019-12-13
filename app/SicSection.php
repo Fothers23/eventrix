@@ -16,6 +16,6 @@ class SicSection extends Model
     */
     public function sicDivisions() 
     {
-        return $this->hasMay(SicDivision::class);
+        return $this->hasMany(SicDivision::class);
     }
 }
