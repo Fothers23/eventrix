@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Organisation extends Model
 {
     protected $fillable = [
-        'name', 'description', 'member_size', 'year_founded', 'website_url', 'image'
+        'name', 'description', 'member_total', 'year_founded', 'website_url', 'image'
     ];
 
     /*
