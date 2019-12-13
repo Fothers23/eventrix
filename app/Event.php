@@ -24,11 +24,6 @@ class Event extends Model
         return $this->belongsTo(Organisation::class);
     }
 
-
-
-    /*------------------------------------------------EVENT INSTANCES-----------------------
-    ---------------------------------------------------*/
-
      /*
         Relationship: One to Many
         Return: Collection
