@@ -14,8 +14,8 @@ class CreateEventInstanceSicDivisionTable extends Migration
     public function up()
     {
         Schema::create('event_instance_sic_division', function (Blueprint $table) {
-            $table->bigInteger('event_instance_id');
-            $table->bigInteger('sic_division_id');
+            $table->bigInteger('event_instances_id');
+            $table->bigInteger('sic_divisions_id');
         });
     }
 

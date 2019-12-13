@@ -20,7 +20,7 @@ class CreateRoomsTable extends Migration
             $table->integer('max_height');
             $table->integer('total_area');
             $table->string('dimensions');
-            $table->bigInteger('venue_id');
+            $table->bigInteger('venues_id');
         });
     }
 
