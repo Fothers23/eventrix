@@ -5,10 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Lead extends Model
-{
-     
-
-    
+{    
     /*
         Relationship: One to Many
         Return: Collection
@@ -26,7 +23,6 @@ class Lead extends Model
     {
         return $this->belongsTo(Venue::class);
     }
-
     
      /*
         Relationship: One to Many
@@ -36,7 +32,6 @@ class Lead extends Model
     {
         return $this->hasMany(LeadScore::class);
     }
-    
 
     /*
         Relationship: One to Many
