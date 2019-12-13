@@ -11,8 +11,6 @@ class CapRoomStyle extends Model
         'capacity', 
     ];
 
-    protected $appends = ['style_name'];
-
      /*
         Relationship: One to Many
         Return: Collection
