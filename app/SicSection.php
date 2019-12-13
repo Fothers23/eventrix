@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SicSection extends Model
 {
     protected $fillable = [
-        'name', 'code', 'image'
+        'name', 'code', 
     ];
 
     /*
