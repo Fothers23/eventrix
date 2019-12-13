@@ -14,7 +14,7 @@ class EventType extends Model
         Relationship: One to Many
         Return: Collection
     */
-    public function events() : HasMany
+    public function events()
     {
         return $this->hasMany(Event::class);
     }
