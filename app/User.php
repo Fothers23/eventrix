@@ -66,11 +66,7 @@ class User extends Authenticatable
 
     public function hasAnyRole($roles)
     {
-        if ($this->role()->whereIn('name', $roles)->first())
-        {
-            return true;
-        }
-        return false;
+        return $this->roles_id == $roles ? true : false;
     }
 
     /**
@@ -79,10 +75,22 @@ class User extends Authenticatable
      */
     public function hasRole($role)
     {
-        if ($this->role()->where('name', $role)->first())
-        {
-            return true;
-        }
-        return false;
+        return $this->roles_id == $role ? true : false;
     }
+
+    public function isUser()
+    {
+        return $this->hasRole(1);
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole(2);
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->hasRole(3);
+    }
+
 }
