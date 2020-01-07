@@ -19,7 +19,7 @@ class CreateEventInstancesTable extends Migration
             $table->string('name');
             $table->integer('participants');
             $table->tinyInteger('happened');
-            $table->bigInteger('event_id');
+            $table->bigInteger('events_id');
         });
     }
 

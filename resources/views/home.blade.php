@@ -14,7 +14,14 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in
+                        @if (Auth::user()->isAdmin())
+                            Admin
+                        @elseif (Auth::user()->isUser())
+                            User
+                        @else
+                            Super Admin
+                        @endif
                 </div>
             </div>
         </div>

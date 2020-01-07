@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','role_id',
+
     ];
 
     /**
@@ -63,4 +64,34 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function hasAnyRole($roles)
+    {
+        return $this->roles_id == $roles ? true : false;
+    }
+
+    /**
+     * Check one role
+     * @param string $role
+     */
+    public function hasRole($role)
+    {
+        return $this->roles_id == $role ? true : false;
+    }
+
+    public function isUser()
+    {
+        return $this->hasRole(1);
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole(2);
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->hasRole(3);
+    }
+
 }

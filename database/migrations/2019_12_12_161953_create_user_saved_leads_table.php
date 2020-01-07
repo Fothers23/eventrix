@@ -17,8 +17,8 @@ class CreateUserSavedLeadsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->tinyInteger('saved');
-            $table->bigInteger('lead_id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('leads_id');
+            $table->bigInteger('users_id');
         });
     }
 
