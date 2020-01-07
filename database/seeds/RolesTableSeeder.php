@@ -10,6 +10,7 @@ class RolesTableSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
         Role::create(['name'=>"SuperAdmin"]);
@@ -17,4 +18,5 @@ class RolesTableSeeder extends Seeder
         Role::create(['name'=>"User"]);
 
     }
+
 }

@@ -14,8 +14,8 @@ class CreateCapRoomStyleEventInstanceTable extends Migration
     public function up()
     {
         Schema::create('cap_room_style_event_instance', function (Blueprint $table) {
-            $table->bigInteger('event_instance_id');
-            $table->bigInteger('cap_room_style_id');
+            $table->bigInteger('event_instances_id');
+            $table->bigInteger('cap_room_styles_id');
         });
     }
 

@@ -27,7 +27,7 @@ class CreateLeadScoresTable extends Migration
             $table->integer('proj_participants');
             $table->integer('proj_days');
             $table->integer('proj_rooms');
-            $table->bigInteger('lead_id');
+            $table->bigInteger('leads_id');
         });
     }
 

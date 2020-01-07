@@ -16,9 +16,9 @@ class CreateDatesTable extends Migration
         Schema::create('dates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('event_instance_id');
+            $table->bigInteger('event_instances_id');
             $table->date('start_date');
-            $table->date('end_date');                     
+            $table->date('end_date');
         });
     }
 
