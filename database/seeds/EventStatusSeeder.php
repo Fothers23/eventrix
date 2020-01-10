@@ -10,14 +10,9 @@ class EventStatusSeeder extends Seeder
      * @return void
      */
     public function run()
-    
-    
-    {// Happened / To tender / Planned for future
+    {
         EventStatus::create(['name'=>"Past"]);
         EventStatus::create(['name'=>"Tender"]);
         EventStatus::create(['name'=>"Upcoming"]);
-
     }
-
-    
 }
