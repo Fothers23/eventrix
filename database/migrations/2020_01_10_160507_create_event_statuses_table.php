@@ -16,7 +16,7 @@ class CreateEventStatusesTable extends Migration
         Schema::create('event_statuses', function (Blueprint $table) {
             // Happened / To tender / Planned for future
             $table->bigIncrements('id');
-            $table->string('status')
+            $table->string('status');
             $table->timestamps();
         });
     }
