@@ -63,18 +63,19 @@ class VenueController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Venue  $venue
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Venue $venue)
+    public function show($id)
     {
-
+        $venue = Venue::findOrFail($id);
+        return view('venues.show', compact('venue'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Venue  $venue
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)

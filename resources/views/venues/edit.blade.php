@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="description">Description: </label>
                 <textarea class="form-control" rows="3"
-                          name="description" value="{{ old('description', $venue->description) }}"></textarea>
+                          name="description">{{ old('description', $venue->description) }}</textarea>
             </div>
             <div class="form-group">
                 <label for="country_code">Country code: </label>
@@ -65,10 +65,10 @@
             <div class="form-group">
                 <label for="research_notes">Research notes: </label>
                 <textarea class="form-control" rows="5"
-                          name="research_notes" value="{{ old('research_notes', $venue->research_notes) }}"></textarea>
+                          name="research_notes">{{ old('research_notes', $venue->research_notes) }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{{route('venues.index')}}" class="btn btn-primary">Back</a>
+            <a href="{{route('venues.show', $venue->id)}}" class="btn btn-primary">Back</a>
         </form>
     </div>
 @endsection
