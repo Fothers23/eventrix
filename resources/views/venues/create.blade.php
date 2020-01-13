@@ -55,7 +55,7 @@
                 <input type="number" class="form-control" name="break_out_room_total" placeholder="Input break-out room total here...">
             </div>
             <div class="form-group">
-                <label for="floor_sqm">Floor space (squared metres): </label>
+                <label for="floor_sqm">Floor space (m<sup>2</sup>): </label>
                 <input type="number" class="form-control" name="floor_sqm" placeholder="Input floor space here...">
             </div>
             <div class="form-group">

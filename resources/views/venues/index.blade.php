@@ -45,10 +45,10 @@
                             {{$venue->id}}
                         </td>
                         <td>
-                            <a href="#">{{$venue->name}}</a>
+                            <a href="{{route('venues.show', $venue->id)}}">{{$venue->name}}</a>
                         </td>
                         <td>
-                            {{$venue->location}}
+                            {{$venue->city}}
                         </td>
                     </tr>
                 @endforeach
