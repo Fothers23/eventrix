@@ -24,7 +24,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
+    @yield('title')
 </head>
 <body>
     <div id="app">
@@ -80,6 +81,9 @@
         </nav>
 
         <main class="py-4">
+            <div class="row">
+                @yield('header')
+            </div>
             @yield('content')
         </main>
     </div>
