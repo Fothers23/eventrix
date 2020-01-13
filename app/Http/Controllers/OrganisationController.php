@@ -146,10 +146,8 @@ class OrganisationController extends Controller
      * @param  \App\Model  $Model
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Organisation $organisation)
     {
-        $organisation = Organisation::find($id);
-
         $organisation->delete();
 
         return redirect('/organisations')->with('success','Organisation has been deleted!');
