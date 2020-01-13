@@ -15,10 +15,10 @@ class UpdateVenuesTable extends Migration
     {
         Schema::table('venues', function (Blueprint $table) {
 
-             $table->dropColumn('location');
-             $table->string('city');
-             $table->string('post_code');
-             $table->longText('research_notes');
+             $table->dropColumn('location')->nullable();
+             $table->string('city')->nullable();
+             $table->string('post_code')->nullable();
+             $table->longText('research_notes')->nullable();
         });
     }
 
