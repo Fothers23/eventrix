@@ -80,9 +80,9 @@ class OrganisationController extends Controller
      */
     public function show($id)
     {
-        $organisations = Organisation::all();
+        $organisation = Organisation::findOrFail($id);
 
-        return view('organisations/show', compact('organisations'));
+        return view('/organisations/show', compact('organisation'));
     }
 
     /**
