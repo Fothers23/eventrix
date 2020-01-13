@@ -10,7 +10,7 @@ class Event extends Model
         'name', 'description',
     ];
 
-    public function eventType() 
+    public function eventType()
     {
         return $this->belongsTo(EventType::class);
     }
@@ -19,7 +19,7 @@ class Event extends Model
         Relationship: One to Many
         Return: Collection
     */
-    public function organisation() 
+    public function organisation()
     {
         return $this->belongsTo(Organisation::class);
     }
@@ -28,9 +28,9 @@ class Event extends Model
         Relationship: One to Many
         Return: Collection
     */
-    public function eventInstances() 
+    public function eventStatus()
     {
-        return $this->hasMany(EventInstance::class);
+        return $this->belongsTo(EventStatus::class);
     }
 
 }
