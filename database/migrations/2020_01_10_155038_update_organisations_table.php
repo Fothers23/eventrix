@@ -15,6 +15,13 @@ class UpdateOrganisationsTable extends Migration
     {
         Schema::table('organisations', function (Blueprint $table) {
             $table->bigInteger('sic_divisions_id');
+            $table->string('city');
+            $table->string('postcode');
+            $table->string('contact_name');
+            $table->string('contact_email');
+            $table->string('contact_phone');
+            $table->string('research_notes');
+
         });
     }
 
