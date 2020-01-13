@@ -63,7 +63,7 @@
                 <input type="text" class="form-control" name="city" placeholder="Input city here...">
             </div>
             <div class="form-group">
-                <label for="post_code">City: </label>
+                <label for="post_code">Post Code: </label>
                 <input type="text" class="form-control" name="post_code" placeholder="Input post code here...">
             </div>
             <div class="form-group">
