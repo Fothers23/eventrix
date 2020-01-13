@@ -11,18 +11,9 @@ class SicDivision extends Model
         'name', 'code',
     ];
 
-    public function sicSection() 
+    public function sicSection()
     {
         return $this->belongsTo(SicSection::class);
-    }
-
-    /*
-        Relationship: Many to Many
-        Return: Collection
-    */
-    public function EventInstance() 
-    {
-        return $this->belongsToMany(EventInstance::class);
     }
 
 }
