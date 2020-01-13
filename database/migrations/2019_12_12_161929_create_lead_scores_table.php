@@ -16,18 +16,18 @@ class CreateLeadScoresTable extends Migration
         Schema::create('lead_scores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->integer('venue_specs');
-            $table->integer('value');
-            $table->integer('sector');
-            $table->integer('proj_max_capacity');
-            $table->integer('proj_exhibition');
-            $table->integer('proj_break_outs');
-            $table->string('preferred_month');
-            $table->integer('year_interval');
-            $table->integer('proj_participants');
-            $table->integer('proj_days');
-            $table->integer('proj_rooms');
-            $table->bigInteger('leads_id');
+            $table->integer('venue_specs')->nullable();
+            $table->integer('value')->nullable();
+            $table->integer('sector')->nullable();
+            $table->integer('proj_max_capacity')->nullable();
+            $table->integer('proj_exhibition')->nullable();
+            $table->integer('proj_break_outs')->nullable();
+            $table->string('preferred_month')->nullable();
+            $table->integer('year_interval')->nullable();
+            $table->integer('proj_participants')->nullable();
+            $table->integer('proj_days')->nullable();
+            $table->integer('proj_rooms')->nullable();
+            $table->bigInteger('leads_id')->nullable();
         });
     }
 

@@ -16,14 +16,14 @@ class CreateVenuesTable extends Migration
         Schema::create('venues', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
-            $table->char('country_code', 2);
-            $table->longText('description');
-            $table->string('website_url');
-            $table->integer('max_capacity');
-            $table->integer('break_out_room_total');
-            $table->integer('floor_sqm');
-            $table->point('location');
+            $table->string('name')->unique();
+            $table->char('country_code', 2)->nullable();
+            $table->longText('description')->nullable();
+            $table->string('website_url')->nullable();
+            $table->integer('max_capacity')->nullable();
+            $table->integer('break_out_room_total')->nullable();
+            $table->integer('floor_sqm')->nullable();
+            $table->point('location')->nullable();
         });
     }
 

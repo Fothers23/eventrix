@@ -18,7 +18,7 @@ class CreateCapRoomStylesTable extends Migration
             $table->timestamps();
             $table->bigInteger('rooms_id');
             $table->bigInteger('styles_id');
-            $table->integer('capacity');
+            $table->integer('capacity')->nullable();
         });
     }
 

@@ -16,12 +16,12 @@ class CreateOrganisationsTable extends Migration
         Schema::create('organisations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
-            $table->longText('description');
-            $table->integer('member_total');
-            $table->integer('year_founded');
-            $table->string('website_url');
-            //$table->string('image');
+            $table->string('name')->unique();
+            $table->longText('description')->nullable();
+            $table->integer('member_total')->nullable();
+            $table->integer('year_founded')->nullable();
+            $table->string('website_url')->nullable();
+            
         });
     }
 

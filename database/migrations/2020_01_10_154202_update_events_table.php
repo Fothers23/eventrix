@@ -15,12 +15,12 @@ class UpdateEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
            
-            $table->integer('participants');
-            $table->longText('research_notes'); 
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->bigInteger('event_status_id');
-            $table->bigInteger('venue_id');
+            $table->integer('participants')->nullable();
+            $table->longText('research_notes')->nullable(); 
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->bigInteger('event_status_id')->nullable();
+            $table->bigInteger('venue_id')->nullable();
 
         });
     }
