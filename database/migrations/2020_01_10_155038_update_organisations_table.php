@@ -14,7 +14,7 @@ class UpdateOrganisationsTable extends Migration
     public function up()
     {
         Schema::table('organisations', function (Blueprint $table) {
-            $table->bigInteger('sic_divisions_id');
+            $table->bigInteger('sic_sections_id');
         });
     }
 
