@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Model;
 use Illuminate\Http\Request;
 use App\Organisation;
 
@@ -42,15 +41,15 @@ class OrganisationController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'member_total' => 'required',
-            'year_founded' => 'required',
+            // 'member_total' => 'required',
+            // 'year_founded' => 'required',
             'website_url' => 'required',
-            'sic_divisions_id' => 'required',
-            'city' => 'required',
-            'postcode'=> 'required',
-            'contact_name' => 'required',
-            'contact_email' => 'required',
-            'contact_phone' => 'required',
+            // 'sic_divisions_id' => 'required',
+            // 'city' => 'required',
+            // 'postcode'=> 'required',
+            // 'contact_name' => 'required',
+            // 'contact_email' => 'required',
+            // 'contact_phone' => 'required',
             
         ]);
 
@@ -98,7 +97,7 @@ class OrganisationController extends Controller
     {
         $organisation = Organisation::find($id);
 
-        return view('organisations.edit', compact('organisations'));
+        return view('organisations.edit', compact('organisation'));
     }
 
     /**
@@ -112,15 +111,15 @@ class OrganisationController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'member_total' => 'required',
-            'year_founded' => 'required',
+            // 'member_total' => 'required',
+            // 'year_founded' => 'required',
             'website_url' => 'required',
-            'sic_divisions_id' => 'required',
-            'city' => 'required',
-            'postcode'=> 'required',
-            'contact_name' => 'required',
-            'contact_email' => 'required',
-            'contact_phone' => 'required',
+            // 'sic_divisions_id' => 'required',
+            // 'city' => 'required',
+            // 'postcode'=> 'required',
+            // 'contact_name' => 'required',
+            // 'contact_email' => 'required',
+            // 'contact_phone' => 'required',
             
         ]);
 
@@ -139,7 +138,7 @@ class OrganisationController extends Controller
         $organisation->research_notes = $request->get('research_notes');
         $organisation->save();
 
-        return redirect('/organisationes')->with('success', 'Organisation has been updated'); 
+        return redirect('/organisations')->with('success', 'Organisation has been updated'); 
         
     }
 
@@ -149,8 +148,12 @@ class OrganisationController extends Controller
      * @param  \App\Model  $Model
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Model $Model)
+    public function destroy($id)
     {
-        //
+        $organisation = Organisation::find($id);
+
+        $organisation->delete();
+
+        return redirect('/organisations')->with('success','Organisation has been deleted!');
     }
 }
