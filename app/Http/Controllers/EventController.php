@@ -74,7 +74,6 @@ class EventController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'website_url' => 'required',
         ]);
 
         $event->name = $request->name;
