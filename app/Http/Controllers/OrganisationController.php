@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\odel;
+use App\Model;
 use Illuminate\Http\Request;
 
 class OrganisationController extends Controller
@@ -14,7 +14,9 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        //
+        $organisations = Organisation:all();
+
+        return view('organisations.index',compact('organisations'));
     }
 
     /**
