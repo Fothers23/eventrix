@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('organisations', 'OrganisatinController'); // CRUD FOR ORGANISATIONS
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/events', 'EventController@index')->name('events');

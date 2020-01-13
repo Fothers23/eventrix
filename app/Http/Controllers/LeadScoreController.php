@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\odel;
+use App\Model;
 use Illuminate\Http\Request;
 
 class LeadScoreController extends Controller
