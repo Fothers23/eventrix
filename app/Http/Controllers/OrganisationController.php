@@ -26,8 +26,6 @@ class OrganisationController extends Controller
      */
     public function create()
     {
-        $organisation = Organisation::all();
-
         return view('organisations.create');
     }
 
