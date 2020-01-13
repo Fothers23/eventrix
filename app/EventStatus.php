@@ -8,7 +8,7 @@ class EventStatus extends Model
 {
 
     protected $fillable = [
-        'name',
+        'status',
     ];
 
     public function events()

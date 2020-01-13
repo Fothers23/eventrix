@@ -74,7 +74,7 @@ class VenueController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Venue  $venue
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)

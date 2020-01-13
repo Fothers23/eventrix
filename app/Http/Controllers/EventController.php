@@ -42,23 +42,25 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('events.show', compact('event'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('events.edit', compact('event'));
     }
 
     /**
@@ -66,11 +68,29 @@ class EventController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'website_url' => 'required',
+        ]);
+
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->event_types_id = $request->event_types_id;
+        $event->organisations_id = $request->organisations_id;
+        $event->participants = $request->participants;
+        $event->research_notes = $request->research_notes;
+        $event->start_date = $request->start_date;
+        $event->end_date = $request->end_date;
+        $event->event_status_id = $request->event_status_id;
+        $event->venue_id = $request->venue_id;
+
+        $event->update();
+
+        return redirect()->route('events.index')->with('success','Event updated successfully');
     }
 
     /**
@@ -81,6 +101,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+
+        return redirect()->route('events.index')->with('success','Event deleted successfully');
     }
 }

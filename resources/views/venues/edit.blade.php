@@ -59,7 +59,7 @@
                 <input type="text" class="form-control" name="city" value="{{ old('city', $venue->city) }}">
             </div>
             <div class="form-group">
-                <label for="post_code">City: </label>
+                <label for="post_code">Post Code: </label>
                 <input type="text" class="form-control" name="post_code" value="{{ old('post_code', $venue->post_code) }}">
             </div>
             <div class="form-group">
