@@ -10,24 +10,24 @@
 
 <ul>
 	<li id="li_1" >
-	<label class="description" for="name">name</label>
-	<div>
-	<input id="name" name="name" class="element text medium" type="text" maxlength="255"/> 
-	</div> 
+        <label class="description" for="name">name</label>
+        <div>
+            <input id="name" name="name" class="element text medium" type="text" maxlength="255"/> 
+        </div> 
 	</li>
 
 	<li id="li_2" >
-	<label class="description" for="description">description</label>
-	<div>
-	<textarea id="description" name="description" class="element textarea medium"></textarea> 
-	</div> 
+        <label class="description" for="description">description</label>
+        <div>
+            <textarea id="description" name="description" class="element textarea medium"></textarea> 
+        </div> 
 	</li>
 
 	<li id="li_3" >
-	<label class="description" for="member_total">member_total</label>
-	<div>
-	<input id="member_total" name="member_total" class="element text medium" type="text" maxlength="255"/> 
-	</div> 
+        <label class="description" for="member_total">member_total</label>
+        <div>
+            <input id="member_total" name="member_total" class="element text medium" type="text" maxlength="255"/> 
+        </div> 
 	</li>
 
 	<li id="li_4" >
