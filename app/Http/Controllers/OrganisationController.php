@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\odel;
 use Illuminate\Http\Request;
+use App\Organisation;
 
 class OrganisationController extends Controller
 {
@@ -14,7 +14,9 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        //
+        $organisations = Organisation::all();
+
+        return view('organisations.index',compact('organisations'));
     }
 
     /**
@@ -24,7 +26,7 @@ class OrganisationController extends Controller
      */
     public function create()
     {
-        //
+        return view('organisations.create');
     }
 
     /**
@@ -35,51 +37,119 @@ class OrganisationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            // 'member_total' => 'required',
+            // 'year_founded' => 'required',
+            'website_url' => 'required',
+            // 'sic_divisions_id' => 'required',
+            // 'city' => 'required',
+            // 'postcode'=> 'required',
+            // 'contact_name' => 'required',
+            // 'contact_email' => 'required',
+            // 'contact_phone' => 'required',
+            
+        ]);
+
+        $organisation = new Organisation([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'member_total' => $request->get('member_total'),
+            'year_founded' => $request->get('year_founded'),
+            'website_url' => $request->get('website_url'),
+            'sic_divisions_id'=> $request->get('sic_divisions_id'),
+            'city'=> $request->get('city'),
+            'postcode' => $request->get('postcode'),
+            'contact_name' => $request->get('contact_name'),
+            'contact_email' => $request->get('contact_email'),
+            'contact_phone' => $request->get('contact_phone'),
+            'research_notes' => $request->get('research_notes'),
+
+        ]);
+
+        $organisation->save();
+
+        return redirect('/organisations')->with('success', 'Organisation has been added');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\odel  $odel
+     * @param  \App\Model  $Model
      * @return \Illuminate\Http\Response
      */
-    public function show(odel $odel)
+    public function show($id)
     {
-        //
+        $organisation = Organisation::findOrFail($id);
+
+        return view('/organisations/show', compact('organisation'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\odel  $odel
+     * @param  \App\Model  $Model
      * @return \Illuminate\Http\Response
      */
-    public function edit(odel $odel)
+    public function edit($id)
     {
-        //
+        $organisation = Organisation::findOrFail($id);
+
+        return view('organisations.edit', compact('organisation'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\odel  $odel
+     * @param  \App\Model  $Model
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, odel $odel)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            // 'member_total' => 'required',
+            // 'year_founded' => 'required',
+            'website_url' => 'required',
+            // 'sic_divisions_id' => 'required',
+            // 'city' => 'required',
+            // 'postcode'=> 'required',
+            // 'contact_name' => 'required',
+            // 'contact_email' => 'required',
+            // 'contact_phone' => 'required',
+            
+        ]);
+
+        $organisation = Organisation::find($id);
+        $organisation->name = $request->get('name');
+        $organisation->description = $request->get('description');
+        $organisation->member_total = $request->get('member_total');
+        $organisation->year_founded = $request->get('year_founded');
+        $organisation->website_url = $request->get('website_url');
+        $organisation->sic_divisions_id = $request->get('sic_divisions_id');
+        $organisation->city = $request->get('city');
+        $organisation->postcode = $request->get('postcode');
+        $organisation->contact_name = $request->get('contact_name');
+        $organisation->contact_email = $request->get('contact_email');
+        $organisation->contact_phone = $request->get('contact_phone');
+        $organisation->research_notes = $request->get('research_notes');
+        $organisation->save();
+
+        return redirect('/organisations')->with('success', 'Organisation has been updated'); 
+        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\odel  $odel
+     * @param  \App\Model  $Model
      * @return \Illuminate\Http\Response
      */
-    public function destroy(odel $odel)
+    public function destroy(Organisation $organisation)
     {
-        //
+        $organisation->delete();
+
+        return redirect('/organisations')->with('success','Organisation has been deleted!');
     }
 }
