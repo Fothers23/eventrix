@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Organisation;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -21,11 +22,12 @@ class EventController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Organisation $organisation
+     * @return void
      */
-    public function create()
+    public function create(Organisation $organisation)
     {
-        //
+        return view('events.create', compact('organisation'));
     }
 
     /**
@@ -36,7 +38,25 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $event = new Event([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'event_type_id' => $request->get('event_type_id'),
+            'organisation_id' => $request->get('organisation_id'),
+            'participants' => $request->get('participants'),
+            'research_notes' => $request->get('research_notes'),
+            'start_date' => $request->get('start_date'),
+            'end_date' => $request->get('end_date'),
+            'event_status_id' => $request->get('event_status_id'),
+            'venue_id' => $request->get('venue_id'),
+        ]);
+        $event->save();
+
+        return redirect()->route('events.create')->with('success','Event added successfully');
     }
 
     /**
@@ -78,8 +98,8 @@ class EventController extends Controller
 
         $event->name = $request->name;
         $event->description = $request->description;
-        $event->event_types_id = $request->event_types_id;
-        $event->organisations_id = $request->organisations_id;
+        $event->event_type_id = $request->event_type_id;
+        $event->organisation_id = $request->organisation_id;
         $event->participants = $request->participants;
         $event->research_notes = $request->research_notes;
         $event->start_date = $request->start_date;

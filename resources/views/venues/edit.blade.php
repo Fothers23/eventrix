@@ -6,7 +6,7 @@
 
 @section('header')
     <div style="margin-bottom:10px">
-        <h1>Add Venue</h1>
+        <h1>Update Venue</h1>
     </div>
 @endsection
 
