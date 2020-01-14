@@ -16,8 +16,8 @@ class CreateSicSectionsTable extends Migration
         Schema::create('sic_sections', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
-            $table->char('code', 1);
+            $table->string('name')->unique();
+            $table->char('code', 1)->nullable();
         });
     }
 

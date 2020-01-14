@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateOrganisationsTable extends Migration
+class UpdateVenuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class UpdateOrganisationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('organisations', function (Blueprint $table) {
-            $table->bigInteger('sic_sections_id')->nullable();
+        Schema::table('venues', function (Blueprint $table) {
+
+             $table->dropColumn('location')->nullable();
+             $table->string('city')->nullable();
+             $table->string('post_code')->nullable();
+             $table->longText('research_notes')->nullable();
         });
     }
 
@@ -25,7 +29,7 @@ class UpdateOrganisationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('organisations', function (Blueprint $table) {
+        Schema::table('venues', function (Blueprint $table) {
             //
         });
     }
