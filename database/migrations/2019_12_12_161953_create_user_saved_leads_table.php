@@ -16,9 +16,9 @@ class CreateUserSavedLeadsTable extends Migration
         Schema::create('user_saved_leads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->tinyInteger('saved');
-            $table->bigInteger('leads_id');
-            $table->bigInteger('users_id');
+            $table->tinyInteger('saved')->nullable();
+            $table->bigInteger('lead_id');
+            $table->bigInteger('user_id');
         });
     }
 

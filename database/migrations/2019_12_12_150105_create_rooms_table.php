@@ -16,11 +16,11 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
-            $table->integer('max_height');
-            $table->integer('total_area');
-            $table->string('dimensions');
-            $table->bigInteger('venues_id');
+            $table->string('name')->unique();
+            $table->integer('max_height')->nullable();
+            $table->integer('total_area')->nullable();
+            $table->string('dimensions')->nullable();
+            $table->bigInteger('venue_id');
         });
     }
 

@@ -16,9 +16,9 @@ class CreateSicDivisionsTable extends Migration
         Schema::create('sic_divisions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
-            $table->integer('code');
-            $table->bigInteger('sic_sections_id');
+            $table->string('name')->unique();
+            $table->integer('code')->nullable();
+            $table->bigInteger('sic_section_id');
         });
     }
 
