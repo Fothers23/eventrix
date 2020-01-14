@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\EventStatus;
 
 class EventStatusSeeder extends Seeder
 {
@@ -11,8 +12,8 @@ class EventStatusSeeder extends Seeder
      */
     public function run()
     {
-        EventStatus::create(['name'=>"Past"]);
-        EventStatus::create(['name'=>"Tender"]);
-        EventStatus::create(['name'=>"Upcoming"]);
+        EventStatus::create(['status'=>"Past"]);
+        EventStatus::create(['status'=>"Tender"]);
+        EventStatus::create(['status'=>"Upcoming"]);
     }
 }

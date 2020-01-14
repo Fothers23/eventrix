@@ -14,14 +14,13 @@ class UpdateOrganisationsTable extends Migration
     public function up()
     {
         Schema::table('organisations', function (Blueprint $table) {
-            $table->bigInteger('sic_divisions_id');
-            $table->string('city');
-            $table->string('postcode');
-            $table->string('contact_name');
-            $table->string('contact_email');
-            $table->string('contact_phone');
-            $table->string('research_notes');
-
+            $table->bigInteger('sic_division_id')->nullable();
+            $table->string('city')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('contact_name')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->string('contact_phone')->nullable();
+            $table->string('research_notes')->nullable();
         });
     }
 
