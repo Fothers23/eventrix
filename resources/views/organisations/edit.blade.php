@@ -43,8 +43,8 @@
           </div>
 
           <div class="form-group">
-              <label for="sic_divisions_id">SIC DIVISION</label>
-              <input type="text" class="form-control" name="sic_divisions_id" value="{{ $organisation->sic_divisions_id }}" />
+              <label for="sic_division_id">SIC DIVISION</label>
+              <input type="text" class="form-control" name="sic_division_id" value="{{ $organisation->sic_division_id }}" />
           </div>
 
           <div class="form-group">
