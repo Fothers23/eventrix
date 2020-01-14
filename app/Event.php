@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $fillable = [
-        'name', 'description',
+        'name', 'description', 'event_types_id', 'organisations_id', 'participants', 'research_notes',
+        'start_date', 'end_date', 'event_status_id', 'venue_id'
     ];
 
     public function eventType()
@@ -31,6 +32,11 @@ class Event extends Model
     public function eventStatus()
     {
         return $this->belongsTo(EventStatus::class);
+    }
+
+    public function venue()
+    {
+        return $this->belongsTo(Venue::class);
     }
 
 }

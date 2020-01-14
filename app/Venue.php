@@ -37,4 +37,9 @@ class Venue extends Model
     {
         return $this->hasMany(Lead::class);
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }
