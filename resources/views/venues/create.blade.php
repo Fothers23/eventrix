@@ -4,11 +4,6 @@
     <title>Venues</title>
 @endsection
 
-@section('header')
-    <div style="margin-bottom:10px">
-        <h1>Add Venue</h1>
-    </div>
-@endsection
 
 @section('content')
     <div class="col-8">
@@ -26,6 +21,12 @@
                 <p>{{\Session::get('success')}}</p>
             </div>
         @endif
+
+        <div class="container">
+
+            <div style="margin-bottom:10px">
+                <h1>Add Venue</h1>
+            </div>
 
         <form method="POST" action="{{ route('venues.store') }}"  enctype="multipart/form-data">
         {{csrf_field()}} <!-- cross-site forgery request -->
@@ -74,5 +75,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="{{route('venues.index')}}" class="btn btn-primary">Back</a>
         </form>
+
+    </div>
     </div>
 @endsection
