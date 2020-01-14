@@ -4,9 +4,9 @@
 
 <div class="uper">
   @if(session()->get('success'))
-    
+
     <div class="alert alert-success">
-      {{ session()->get('success') }}  
+      {{ session()->get('success') }}
     </div><br/>
     @endif
 
@@ -29,7 +29,7 @@
     		</tr>
     	</thead>
     	<tbody>
-    		
+
     		@foreach($organisations as $organisation)
     		<tr>
     			<td>{{ $organisation->id }}</td>
@@ -38,7 +38,7 @@
     			<td>{{ $organisation->member_total }}</td>
     			<td>{{ $organisation->year_founded }}</td>
     			<td>{{ $organisation->website_url }}</td>
-    			<td>{{ $organisation->sic_divisions_id }}</td>
+    			<td>{{ $organisation->sic_division_id }}</td>
     			<td>{{ $organisation->city }}</td>
     			<td>{{ $organisation->postcode }}</td>
     			<td>{{ $organisation->contact_name }}</td>
@@ -59,7 +59,7 @@
     					<button class="btn btn-danger" type="submit">Delete</button>
     				</form>
     			</td>
-    			
+
     		</tr>
     		@endforeach
     	</tbody>
