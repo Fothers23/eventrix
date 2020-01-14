@@ -5,30 +5,30 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Lead extends Model
-{    
+{
     /*
         Relationship: One to Many
         Return: Collection
     */
-    public function eventInstance() 
+    public function event()
     {
-        return $this->belongsTo(EventInstance::class);
+        return $this->belongsTo(Event::class);
     }
 
      /*
         Relationship: One to Many
         Return: Collection
     */
-    public function venue() 
+    public function venue()
     {
         return $this->belongsTo(Venue::class);
     }
-    
+
      /*
         Relationship: One to Many
         Return: Collection
     */
-    public function leadScores() 
+    public function leadScores()
     {
         return $this->hasMany(LeadScore::class);
     }
@@ -37,7 +37,7 @@ class Lead extends Model
         Relationship: One to Many
         Return: Collection
     */
-    public function userSavedLeads() 
+    public function userSavedLeads()
     {
         return $this->hasMany(UserSavedLead::class);
     }
