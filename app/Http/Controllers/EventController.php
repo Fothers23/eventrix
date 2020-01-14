@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Organisation;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -21,11 +22,12 @@ class EventController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Organisation $organisation
+     * @return void
      */
-    public function create()
+    public function create(Organisation $organisation)
     {
-        //
+        return view('events.create', compact('organisation'));
     }
 
     /**
@@ -36,29 +38,49 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $event = new Event([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'event_type_id' => $request->get('event_type_id'),
+            'organisation_id' => $request->get('organisation_id'),
+            'participants' => $request->get('participants'),
+            'research_notes' => $request->get('research_notes'),
+            'start_date' => $request->get('start_date'),
+            'end_date' => $request->get('end_date'),
+            'event_status_id' => $request->get('event_status_id'),
+            'venue_id' => $request->get('venue_id'),
+        ]);
+        $event->save();
+
+        return redirect()->route('events.create')->with('success','Event added successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('events.show', compact('event'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('events.edit', compact('event'));
     }
 
     /**
@@ -66,11 +88,28 @@ class EventController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->event_type_id = $request->event_type_id;
+        $event->organisation_id = $request->organisation_id;
+        $event->participants = $request->participants;
+        $event->research_notes = $request->research_notes;
+        $event->start_date = $request->start_date;
+        $event->end_date = $request->end_date;
+        $event->event_status_id = $request->event_status_id;
+        $event->venue_id = $request->venue_id;
+
+        $event->update();
+
+        return redirect()->route('events.index')->with('success','Event updated successfully');
     }
 
     /**
@@ -81,6 +120,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+
+        return redirect()->route('events.index')->with('success','Event deleted successfully');
     }
 }

@@ -16,11 +16,10 @@ class CreateDatesTable extends Migration
         Schema::create('dates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('event_instances_id')->nullable();
+            $table->bigInteger('event_id')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-    });
-
+        });
     }
 
     /**
