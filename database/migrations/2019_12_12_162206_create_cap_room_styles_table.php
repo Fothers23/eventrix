@@ -16,8 +16,8 @@ class CreateCapRoomStylesTable extends Migration
         Schema::create('cap_room_styles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('rooms_id');
-            $table->bigInteger('styles_id');
+            $table->bigInteger('room_id');
+            $table->bigInteger('style_id');
             $table->integer('capacity')->nullable();
         });
     }

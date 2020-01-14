@@ -14,8 +14,8 @@ class CreateUserVenueTable extends Migration
     public function up()
     {
         Schema::create('user_venue', function (Blueprint $table) {
-            $table->bigInteger('users_id');
-            $table->bigInteger('venues_id');
+            $table->bigInteger('user_id');
+            $table->bigInteger('venue_id');
         });
     }
 

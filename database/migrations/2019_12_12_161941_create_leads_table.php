@@ -16,8 +16,8 @@ class CreateLeadsTable extends Migration
         Schema::create('leads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('event_instances_id');
-            $table->bigInteger('venues_id');
+            $table->bigInteger('event_id');
+            $table->bigInteger('venue_id');
         });
     }
 

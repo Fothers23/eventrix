@@ -18,7 +18,7 @@ class CreateSicDivisionsTable extends Migration
             $table->timestamps();
             $table->string('name')->unique();
             $table->integer('code')->nullable();
-            $table->bigInteger('sic_sections_id');
+            $table->bigInteger('sic_section_id');
         });
     }
 
