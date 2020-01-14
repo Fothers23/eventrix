@@ -13,6 +13,8 @@
     </div><br/>
     @endif
 
+      <a href="{{ route('organisations.create') }}" class="btn btn-success">Add organisation</a>
+
     <table class="table table-striped">
     	<thead>
     		<tr>
@@ -51,7 +53,7 @@
     		@endforeach
     	</tbody>
     </table>
-    <a href="{{ route('organisations.create') }}" class="btn btn-success">Add organisation</a></td>
+
 </div>
 
 @endsection
