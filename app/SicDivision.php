@@ -8,7 +8,7 @@ class SicDivision extends Model
 {
     //
     protected $fillable = [
-        'name', 'code',
+        'name', 'code','sic_sections_id'
     ];
 
     public function sicSection()
