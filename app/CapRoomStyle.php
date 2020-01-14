@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CapRoomStyle extends Model
 {
     protected $fillable = [
-        'capacity', 
+        'capacity',
     ];
 
      /*
@@ -33,8 +33,8 @@ class CapRoomStyle extends Model
         Relationship: Many to Many
         Return: Collection
     */
-    public function eventInstances() 
+    public function events()
     {
-        return $this->belongsToMany(EventInstance::class);
+        return $this->belongsToMany(Event::class);
     }
 }
