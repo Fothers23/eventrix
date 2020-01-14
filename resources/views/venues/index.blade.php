@@ -3,29 +3,26 @@
     <title>Venues</title>
 @endsection
 
-@section('header')
-    <div class="col-3" style="margin-bottom:20px">
-        <h1>Venues</h1>
-    </div>
-@endsection
-
 @section('content')
-
-    <div class="row">
-        @if(session()->get('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div><br />
-        @endif
-    </div>
-
-    <div class="row">
-
-        <div class="col-12 col-md-4 col-lg-3">
-            <a href="{{route('venues.create')}}" class="btn btn-primary">Add Venue</a>
+    <div class="container">
+        <div class="col-3" style="margin-bottom:20px">
+            <h1>Venues</h1>
         </div>
-        <table class="table">
-            <thead>
+        <div class="row">
+            @if(session()->get('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div><br/>
+            @endif
+        </div>
+
+        <div class="row">
+
+            <div class="col-12 col-md-4 col-lg-3">
+                <a href="{{route('venues.create')}}" class="btn btn-primary">Add Venue</a>
+            </div>
+            <table class="table table-striped">
+                <thead>
                 <tr>
                     <th>
                         ID
@@ -37,8 +34,8 @@
                         Location
                     </th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 @foreach($venues as $venue)
                     <tr>
                         <td>
@@ -52,15 +49,15 @@
                         </td>
                     </tr>
                 @endforeach
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
+        </div>
+
+        <div class="row justify-content-center">
+            {{ $venues->links() }}
+        </div>
     </div>
-
-    <div class="row justify-content-center">
-        {{ $venues->links() }}
-    </div>
-
 @endsection
 
 
