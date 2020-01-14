@@ -18,4 +18,18 @@ class Organisation extends Model
     {
         return $this->hasMany(Event::class);
     }
+
+    public function numOfEvents()
+    {
+        return $this->events()->count();
+    }
+
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($organisation) { // before delete() method call this
+            $organisation->events()->each(function($event) {
+                $event->delete(); //direct deletion
+            });
+        });
+    }
 }
