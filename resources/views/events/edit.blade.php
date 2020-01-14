@@ -39,11 +39,11 @@
             </div>
             <div class="form-group">
                 <label for="event_type_id">Type: </label>
-                <input type="text" class="form-control" name="event_type_id" value="{{ old('event_type_id', $event->eventType()->name) }}">
+                <input type="text" class="form-control" name="event_type_id" value="{{ old('event_type_id', $event->eventType->name) }}">
             </div>
             <div class="form-group">
                 <label for="organisation_id">Organisation: </label>
-                <input type="text" class="form-control" name="organisation_id" value="{{ old('organisation_id', $event->organisation()->name) }}">
+                <input type="text" class="form-control" name="organisation_id" value="{{ old('organisation_id', $event->organisation->name) }}">
             </div>
             <div class="form-group">
                 <label for="participants">Number of participants: </label>
@@ -59,11 +59,11 @@
             </div>
             <div class="form-group">
                 <label for="event_status_id">Status: </label>
-                <input type="text" class="form-control" name="event_status_id" value="{{ old('event_status_id', $event->eventStatus()->status) }}">
+                <input type="text" class="form-control" name="event_status_id" value="{{ old('event_status_id', $event->eventStatus->status) }}">
             </div>
             <div class="form-group">
                 <label for="venue_id">Venue: </label>
-                <input type="text" class="form-control" name="venue_id" value="{{ old('venue_id', $event->venue()->name) }}">
+                <input type="text" class="form-control" name="venue_id" value="{{ old('venue_id', $event->venue->name) }}">
             </div>
             <div class="form-group">
                 <label for="research_notes">Research notes: </label>
