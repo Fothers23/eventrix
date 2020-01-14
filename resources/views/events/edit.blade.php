@@ -6,7 +6,7 @@
 
 @section('header')
     <div style="margin-bottom:10px">
-        <h1>Add Event</h1>
+        <h1>Update Event</h1>
     </div>
 @endsection
 
@@ -26,21 +26,24 @@
             @csrf
             @method('PUT')
             <div class="form-group">
+                <input type="hidden" class="form-control" name="name" value="{{ $event->organisation->id }}">
+            </div>
+            <div class="form-group">
                 <label for="name">Name: </label>
                 <input type="text" class="form-control" name="name" value="{{ old('name', $event->name) }}">
             </div>
             <div class="form-group">
                 <label for="description">Description: </label>
                 <textarea type="text" class="form-control" rows="3"
-                          name="description" value="{{ old('description', $event->description) }}"></textarea>
+                          name="description">value="{{ old('description', $event->description) }}"</textarea>
             </div>
             <div class="form-group">
-                <label for="event_types_id">Type: </label>
-                <input type="text" class="form-control" name="event_types_id" value="{{ old('event_types_id', $event->eventType()->name) }}">
+                <label for="event_type_id">Type: </label>
+                <input type="text" class="form-control" name="event_type_id" value="{{ old('event_type_id', $event->eventType()->name) }}">
             </div>
             <div class="form-group">
-                <label for="organisations_id">Organisation: </label>
-                <input type="text" class="form-control" name="organisations_id" value="{{ old('organisations_id', $event->organisation()->name) }}">
+                <label for="organisation_id">Organisation: </label>
+                <input type="text" class="form-control" name="organisation_id" value="{{ old('organisation_id', $event->organisation()->name) }}">
             </div>
             <div class="form-group">
                 <label for="participants">Number of participants: </label>
@@ -65,10 +68,10 @@
             <div class="form-group">
                 <label for="research_notes">Research notes: </label>
                 <textarea type="text" class="form-control" rows="5"
-                          name="research_notes" value="{{ old('research_notes', $event->research_notes) }}"></textarea>
+                          name="research_notes">value="{{ old('research_notes', $event->research_notes) }}"</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{{route('venues.index')}}" class="btn btn-primary">Back</a>
+            <a href="{{route('organisation.show', $organisation->id)}}" class="btn btn-primary">Back</a>
         </form>
     </div>
 @endsection

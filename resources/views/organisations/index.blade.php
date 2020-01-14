@@ -13,19 +13,19 @@
     <table class="table table-striped">
     	<thead>
     		<tr>
-    			<td>ID</td>
-    			<td>Name</td>
-    			<td>Description</td>
-    			<td>Member Total</td>
-    			<td>Year Founded</td>
-    			<td>Website URL</td>
-    			<td>SIC DIVISION ID</td>
-    			<td>City</td>
-    			<td>Postcode</td>
-    			<td>Contact Name</td>
-    			<td>Contact Phone</td>
-    			<td>Contact Email</td>
-    			<td>Research Notes</td>
+    			<th>ID</th>
+    			<th>Name</th>
+    			<th>Description</th>
+    			<th>Member Total</th>
+    			<th>Year Founded</th>
+    			<th>Website URL</th>
+    			<th>SIC DIVISION ID</th>
+    			<th>City</th>
+    			<th>Postcode</th>
+    			<th>Contact Name</th>
+    			<th>Contact Phone</th>
+    			<th>Contact Email</th>
+    			<th>Research Notes</th>
     		</tr>
     	</thead>
     	<tbody>
@@ -33,7 +33,7 @@
     		@foreach($organisations as $organisation)
     		<tr>
     			<td>{{ $organisation->id }}</td>
-    			<td>{{ $organisation->name }}</td>
+    			<td><a href="{{route('organisations.show', $organisation->id)}}">{{$organisation->name}}</a></td>
     			<td>{{ $organisation->description }}</td>
     			<td>{{ $organisation->member_total }}</td>
     			<td>{{ $organisation->year_founded }}</td>
