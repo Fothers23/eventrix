@@ -57,7 +57,7 @@ class OrganisationController extends Controller
             'member_total' => $request->get('member_total'),
             'year_founded' => $request->get('year_founded'),
             'website_url' => $request->get('website_url'),
-            'sic_divisions_id'=> $request->get('sic_divisions_id'),
+            'sic_division_id'=> $request->get('sic_division_id'),
             'city'=> $request->get('city'),
             'postcode' => $request->get('postcode'),
             'contact_name' => $request->get('contact_name'),
@@ -127,14 +127,14 @@ class OrganisationController extends Controller
         $organisation->member_total = $request->get('member_total');
         $organisation->year_founded = $request->get('year_founded');
         $organisation->website_url = $request->get('website_url');
-        $organisation->sic_divisions_id = $request->get('sic_divisions_id');
+        $organisation->sic_division_id = $request->get('sic_division_id');
         $organisation->city = $request->get('city');
         $organisation->postcode = $request->get('postcode');
         $organisation->contact_name = $request->get('contact_name');
         $organisation->contact_email = $request->get('contact_email');
         $organisation->contact_phone = $request->get('contact_phone');
         $organisation->research_notes = $request->get('research_notes');
-        $organisation->save();
+        $organisation->update();
 
         return redirect('/organisations')->with('success', 'Organisation has been updated'); 
         
