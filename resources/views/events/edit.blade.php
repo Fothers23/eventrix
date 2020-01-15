@@ -71,7 +71,7 @@
                           name="research_notes">value="{{ old('research_notes', $event->research_notes) }}"</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{{route('organisation.show', $organisation->id)}}" class="btn btn-primary">Back</a>
+            <a href="{{route('organisations.show', $organisation->id)}}" class="btn btn-primary">Back</a>
         </form>
     </div>
 @endsection
