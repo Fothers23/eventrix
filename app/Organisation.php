@@ -19,6 +19,11 @@ class Organisation extends Model
         return $this->hasMany(Event::class);
     }
 
+    public function sicDivision()
+    {
+        return $this->belongsTo(SicDivision::class);
+    }
+
     public function numOfEvents()
     {
         return $this->events()->count();

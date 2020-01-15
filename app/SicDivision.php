@@ -8,7 +8,7 @@ class SicDivision extends Model
 {
     //
     protected $fillable = [
-      
+
         'name', 'code','sic_section_id'
 
     ];
@@ -16,6 +16,11 @@ class SicDivision extends Model
     public function sicSection()
     {
         return $this->belongsTo(SicSection::class);
+    }
+
+    public function organisation()
+    {
+        return $this->belongsTo(Organisation::class);
     }
 
 }
