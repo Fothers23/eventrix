@@ -66,7 +66,7 @@
                         <a href="{{route('events.show', $event->id)}}">{{$event->name}}</a>
                     </td>
                     <td>
-                        {{$event->city}}
+                        {{$event->venue->city}}
                     </td>
                     <th>
                         {{$event->venue->name}}
