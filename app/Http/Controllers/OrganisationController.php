@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SicDivision;
 use Illuminate\Http\Request;
 use App\Organisation;
 
@@ -26,7 +27,8 @@ class OrganisationController extends Controller
      */
     public function create()
     {
-        return view('organisations.create');
+        $sicDivisions = SicDivision::all();
+        return view('organisations.create', compact('sicDivisions'));
     }
 
     /**
@@ -48,7 +50,7 @@ class OrganisationController extends Controller
             // 'contact_name' => 'required',
             // 'contact_email' => 'required',
             // 'contact_phone' => 'required',
-            
+
         ]);
 
         $organisation = new Organisation([
@@ -94,8 +96,8 @@ class OrganisationController extends Controller
     public function edit($id)
     {
         $organisation = Organisation::findOrFail($id);
-
-        return view('organisations.edit', compact('organisation'));
+        $sicDivisions = SicDivision::all();
+        return view('organisations.edit', compact('organisation', 'sicDivisions'));
     }
 
     /**
@@ -118,7 +120,7 @@ class OrganisationController extends Controller
             // 'contact_name' => 'required',
             // 'contact_email' => 'required',
             // 'contact_phone' => 'required',
-            
+
         ]);
 
         $organisation = Organisation::find($id);
@@ -136,8 +138,8 @@ class OrganisationController extends Controller
         $organisation->research_notes = $request->get('research_notes');
         $organisation->update();
 
-        return redirect('/organisations')->with('success', 'Organisation has been updated'); 
-        
+        return redirect('/organisations')->with('success', 'Organisation has been updated');
+
     }
 
     /**

@@ -43,8 +43,13 @@
           </div>
 
           <div class="form-group">
-              <label for="sic_division_id">SIC DIVISION</label>
-              <input type="text" class="form-control" name="sic_division_id" value="{{ $organisation->sic_division_id }}" />
+              <label for="sic_division_id">SIC Division</label>
+              <select type="text" class="form-control" name="sic_division_id">
+                  <option value="{{ $organisation->sic_division_id }}">{{ $organisation->sicDivision->code}} : {{ $organisation->sicDivision->name}}</option>
+                  @foreach ($sicDivisions as $sicDivision)
+                      <option value="{{ $sicDivision->id }}">{{$sicDivision->code}} : {{ $sicDivision->name }}</option>
+                  @endforeach
+              </select>
           </div>
 
           <div class="form-group">

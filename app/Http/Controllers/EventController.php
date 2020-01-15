@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\EventType;
 use App\Organisation;
+use App\Venue;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -27,7 +29,10 @@ class EventController extends Controller
      */
     public function create(Organisation $organisation)
     {
-        return view('events.create', compact('organisation'));
+        $eventTypes = EventType::all();
+        $organisations = Organisation::all();
+        $venues = Venue::all();
+        return view('events.create', compact('organisation', 'eventTypes', 'organisations', 'venues'));
     }
 
     /**
@@ -80,7 +85,10 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::findOrFail($id);
-        return view('events.edit', compact('event'));
+        $eventTypes = EventType::all();
+        $organisations = Organisation::all();
+        $venues = Venue::all();
+        return view('events.edit', compact('event', 'eventTypes', 'organisations', 'venues'));
     }
 
     /**

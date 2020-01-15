@@ -40,11 +40,21 @@
                 </div>
                 <div class="form-group">
                     <label for="event_type_id">Type: </label>
-                    <input type="text" class="form-control" name="event_type_id">
+                    <select type="text" class="form-control" name="event_type_id">
+                        <option value=""> -- Select One --</option>
+                        @foreach ($eventTypes as $eventType)
+                            <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="organisation_id">Organisation: </label>
-                    <input type="text" class="form-control" name="organisation_id">
+                    <select type="text" class="form-control" name="organisation_id">
+                        <option value=""> -- Select One --</option>
+                        @foreach ($organisations as $organisation)
+                            <option value="{{ $organisation->id }}">{{ $organisation->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="participants">Number of participants: </label>
@@ -60,11 +70,21 @@
                 </div>
                 <div class="form-group">
                     <label for="event_status_id">Status: </label>
-                    <input type="text" class="form-control" name="event_status_id">
+                    <select type="text" class="form-control" name="event_status_id">
+                        <option value=""> -- Select One -- </option>
+                        <option value="1">Past</option>
+                        <option value="2">Tender</option>
+                        <option value="3">Upcoming</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="venue_id">Venue: </label>
-                    <input type="text" class="form-control" name="venue_id">
+                    <select type="text" class="form-control" name="venue_id">
+                        <option value=""> -- Select One --</option>
+                        @foreach ($venues as $venue)
+                            <option value="{{ $venue->id }}">{{ $venue->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="research_notes">Research notes: </label>
@@ -74,5 +94,5 @@
                 <a href="{{route('organisations.index')}}" class="btn btn-primary">Back</a>
             </form>
         </div>
-    </div
+    </div>
 @endsection
