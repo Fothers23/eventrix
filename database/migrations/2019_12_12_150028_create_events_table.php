@@ -18,8 +18,8 @@ class CreateEventsTable extends Migration
             $table->timestamps();
             $table->string('name')->unique();
             $table->longText('description')->nullable();
-            $table->bigInteger('event_type_id');
-            $table->bigInteger('organisation_id');
+            $table->bigInteger('event_type_id')->nullable();
+            $table->bigInteger('organisation_id')->nullable();
         });
     }
 

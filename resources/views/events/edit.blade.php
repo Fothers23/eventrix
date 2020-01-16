@@ -24,7 +24,7 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <input type="hidden" class="form-control" name="name" value="{{ $event->organisation->id }}">
+                    <input type="hidden" class="form-control" name="organisation_id" value="{{ $event->organisation->id }}">
                 </div>
                 <div class="form-group">
                     <label for="name">Name: </label>
