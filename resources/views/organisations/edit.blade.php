@@ -45,10 +45,12 @@
           <div class="form-group">
               <label for="sic_division_id">SIC Division</label>
               <select type="text" class="form-control" name="sic_division_id">
-                  <option value="{{ $organisation->sic_division_id }}">{{ $organisation->sicDivision->code}} : {{ $organisation->sicDivision->name}}</option>
-                  @foreach ($sicDivisions as $sicDivision)
-                      <option value="{{ $sicDivision->id }}">{{$sicDivision->code}} : {{ $sicDivision->name }}</option>
-                  @endforeach
+                @if($organisation->sicDivision != null)
+                    <option value="{{ $organisation->sic_division_id }}">{{ $organisation->sicDivision->code}} : {{ $organisation->sicDivision->name}}</option>
+                @endif
+                @foreach ($sicDivisions as $sicDivision)
+                    <option value="{{ $sicDivision->id }}">{{$sicDivision->code}} : {{ $sicDivision->name }}</option>
+                @endforeach
               </select>
           </div>
 

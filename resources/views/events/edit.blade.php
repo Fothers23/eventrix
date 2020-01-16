@@ -24,7 +24,9 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
+                @if($event->organisation != null) 
                     <input type="hidden" class="form-control" name="organisation_id" value="{{ $event->organisation->id }}">
+                @endif
                 </div>
                 <div class="form-group">
                     <label for="name">Name: </label>
@@ -38,8 +40,10 @@
                 <div class="form-group">
                     <label for="event_type_id">Type: </label>
                     <select type="text" class="form-control" name="event_type_id">
+                        @if($event->eventType != null)   
                         <option
                             value="{{ old('event_type_id', $event->event_type_id) }}">{{ old('event_type_id', $event->eventType->name) }}</option>
+                        @endif
                         @foreach ($eventTypes as $eventType)
                             <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
                         @endforeach
@@ -48,8 +52,10 @@
                 <div class="form-group">
                     <label for="organisation_id">Organisation: </label>
                     <select type="text" class="form-control" name="organisation_id">
+                        @if($event->organisation != null)                        
                         <option
                             value="{{ old('organisation_id', $event->organisation_id) }}">{{ old('organisation_id', $event->organisation->name) }}</option>
+                        @endif
                         @foreach ($organisations as $organisation)
                             <option value="{{ $organisation->id }}">{{ $organisation->name }}</option>
                         @endforeach
@@ -73,8 +79,10 @@
                 <div class="form-group">
                     <label for="event_status_id">Status: </label>
                     <select type="text" class="form-control" name="event_status_id">
+                        @if($event->eventStatus != null)
                         <option
                             value="{{ old('event_status_id', $event->event_status_id) }}">{{ old('event_status_id', $event->eventStatus->status) }}</option>
+                        @endif
                         <option value="1">Past</option>
                         <option value="2">Tender</option>
                         <option value="3">Upcoming</option>
@@ -83,8 +91,10 @@
                 <div class="form-group">
                     <label for="venue_id">Venue: </label>
                     <select type="text" class="form-control" name="venue_id">
+                        @if($event->venue != null)
                         <option
                             value="{{ old('venue_id', $event->venue_id) }}">{{ old('venue_id', $event->venue->name) }}</option>
+                        @endif
                         @foreach ($venues as $venue)
                             <option value="{{ $venue->id }}">{{ $venue->name }}</option>
                         @endforeach
