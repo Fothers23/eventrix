@@ -12,7 +12,9 @@
             <p><b>Number of members: </b>{{$organisation->member_total}}</p>
             <p><b>Year Founded: </b>{{$organisation->year_founded}}</p>
             <p><b>Website: </b>{{$organisation->website_url}}</p>
-            <p><b>SIC Division: </b>{{$organisation->sic_division_id}}</p>
+            @if($organisation->sicDivision != null)
+                <p><b>SIC Division: </b>{{$organisation->sicDivision->name}}</p>
+            @endif
             <p><b>City: </b>{{$organisation->city}}</p>
             <p><b>Post Code: </b>{{$organisation->post_code}}</p>
             <p><b>Contact name: </b>{{$organisation->contact_name}}</p>
@@ -66,11 +68,16 @@
                         <a href="{{route('events.show', $event->id)}}">{{$event->name}}</a>
                     </td>
                     <td>
-                        {{$event->venue->city}}
+                        @if($event->venue != null)
+                            {{$event->venue->city}}
+                        @endif
                     </td>
                     <th>
-                        {{$event->venue->name}}
+                        @if($event->venue != null)
+                            {{$event->venue->name}}
+                        @endif
                     </th>
+
                     <th>
                         {{$event->start_date}}
                     </th>

@@ -28,7 +28,7 @@
             <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <input type="hidden" class="form-control" name="name" value="{{ $organisation->id }}">
+                    <input type="hidden" class="form-control" name="organisation_id" value="{{ $organisation->id }}">
                 </div>
                 <div class="form-group">
                     <label for="name">Name: </label>
