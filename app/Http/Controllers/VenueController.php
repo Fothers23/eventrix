@@ -50,6 +50,7 @@ class VenueController extends Controller
             'max_capacity' => $request->get('max_capacity'),
             'break_out_room_total' => $request->get('break_out_room_total'),
             'floor_sqm' => $request->get('floor_sqm'),
+            'address'=> $request->get('address'),
             'city' => $request->get('city'),
             'post_code' => $request->get('post_code'),
             'research_notes' => $request->get('research_notes'),
@@ -105,6 +106,7 @@ class VenueController extends Controller
         $venue->max_capacity = $request->max_capacity;
         $venue->break_out_room_total = $request->break_out_room_total;
         $venue->floor_sqm = $request->floor_sqm;
+        $venue->address = $request->address;
         $venue->city = $request->city;
         $venue->post_code = $request->post_code;
         $venue->research_notes = $request->research_notes;
