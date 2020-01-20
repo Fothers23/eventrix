@@ -62,6 +62,10 @@
                            value="{{ old('floor_sqm', $venue->floor_sqm) }}">
                 </div>
                 <div class="form-group">
+                    <label for="address">Address: </label>
+                    <input type="text" class="form-control" name="address" value="{{ old('address', $venue->address) }}">
+                </div>
+                <div class="form-group">
                     <label for="city">City: </label>
                     <input type="text" class="form-control" name="city" value="{{ old('city', $venue->city) }}">
                 </div>
