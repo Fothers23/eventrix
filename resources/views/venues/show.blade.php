@@ -12,7 +12,7 @@
             <p><b>Max Capacity: </b>{{$venue->max_capacity}}</p>
             <p><b>Number of break out rooms: </b>{{$venue->break_out_room_total}}</p>
             <p><b>Floor space (m<sup>2</sup>): </b>{{$venue->floor_sqm}}</p>
-            <p><b>Website: </b>{{$venue->website_url}}</p>
+            <p><b>Website: </b><a href="{{$venue->website_url}}" target="_blank">{{$venue->website_url}}</a></p>
             <hr>
             <p><b>Country Code: </b>{{$venue->country_code}}</p>
             <p><b>City: </b>{{$venue->city}}</p>
