@@ -26,7 +26,7 @@
             @endif
 
             <form method="POST" action="{{ route('organisations.events.store', $organisation->id) }}">
-                {{csrf_field()}}
+                @csrf
                 <div class="form-group">
                     <input type="hidden" class="form-control" name="organisation_id" value="{{ $organisation->id }}">
                 </div>

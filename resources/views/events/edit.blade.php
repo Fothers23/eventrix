@@ -24,7 +24,7 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                @if($event->organisation != null) 
+                @if($event->organisation != null)
                     <input type="hidden" class="form-control" name="organisation_id" value="{{ $event->organisation->id }}">
                 @endif
                 </div>
@@ -40,24 +40,12 @@
                 <div class="form-group">
                     <label for="event_type_id">Type: </label>
                     <select type="text" class="form-control" name="event_type_id">
-                        @if($event->eventType != null)   
+                        @if($event->eventType != null)
                         <option
                             value="{{ old('event_type_id', $event->event_type_id) }}">{{ old('event_type_id', $event->eventType->name) }}</option>
                         @endif
                         @foreach ($eventTypes as $eventType)
                             <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="organisation_id">Organisation: </label>
-                    <select type="text" class="form-control" name="organisation_id">
-                        @if($event->organisation != null)                        
-                        <option
-                            value="{{ old('organisation_id', $event->organisation_id) }}">{{ old('organisation_id', $event->organisation->name) }}</option>
-                        @endif
-                        @foreach ($organisations as $organisation)
-                            <option value="{{ $organisation->id }}">{{ $organisation->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -106,7 +94,7 @@
                               name="research_notes">{{ old('research_notes', $event->research_notes) }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{route('organisations.show', $organisation->id)}}" class="btn btn-primary">Back</a>
+                <a href="{{route('organisations.show', $event->organisation->id)}}" class="btn btn-primary">Back</a>
             </form>
         </div>
     </div>

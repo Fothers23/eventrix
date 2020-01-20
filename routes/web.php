@@ -20,7 +20,7 @@ Auth::routes();
 //Events
 Route::get('/organisation/{organisation}/events/create', 'EventController@create')->name('events.create');
 Route::post('/organisation/{organisation}/events', 'EventController@store')->name('organisations.events.store');
-Route::resource('events', 'EventController');
+Route::resource('events', 'EventController')->except(['create', 'store']);
 
 Route::resource('organisations', 'OrganisationController'); // CRUD FOR ORGANISATIONS
 
