@@ -24,7 +24,7 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                @if($event->organisation != null) 
+                @if($event->organisation != null)
                     <input type="hidden" class="form-control" name="organisation_id" value="{{ $event->organisation->id }}">
                 @endif
                 </div>
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label for="event_type_id">Type: </label>
                     <select type="text" class="form-control" name="event_type_id">
-                        @if($event->eventType != null)   
+                        @if($event->eventType != null)
                         <option
                             value="{{ old('event_type_id', $event->event_type_id) }}">{{ old('event_type_id', $event->eventType->name) }}</option>
                         @endif
@@ -52,7 +52,7 @@
                 <div class="form-group">
                     <label for="organisation_id">Organisation: </label>
                     <select type="text" class="form-control" name="organisation_id">
-                        @if($event->organisation != null)                        
+                        @if($event->organisation != null)
                         <option
                             value="{{ old('organisation_id', $event->organisation_id) }}">{{ old('organisation_id', $event->organisation->name) }}</option>
                         @endif
@@ -68,12 +68,12 @@
                 </div>
                 <div class="form-group">
                     <label for="start_date">Start Date: </label>
-                    <input type="date" class="form-control" name="start_date"
+                    <input type="datetime-local" class="form-control" name="start_date"
                            value="{{ old('start_date', $event->start_date) }}">
                 </div>
                 <div class="form-group">
                     <label for="end_date">End Date: </label>
-                    <input type="date" class="form-control" name="end_date"
+                    <input type="datetime-local" class="form-control" name="end_date"
                            value="{{ old('end_date', $event->end_date) }}">
                 </div>
                 <div class="form-group">
