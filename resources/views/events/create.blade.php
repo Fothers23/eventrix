@@ -40,8 +40,8 @@
                 </div>
                 <div class="form-group">
                     <label for="event_type_id">Type: </label>
-                    <select type="text" class="form-control" name="event_type_id">
-                        <option value=""> -- Select One --</option>
+                    <input id="search" name="search" type="text" placeholder="Search" onkeyup="filter(this.value, 'select')">
+                    <select id="select" type="text" class="form-control" name="event_type_id" size="5">
                         @foreach ($eventTypes as $eventType)
                             <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
                         @endforeach
@@ -49,8 +49,8 @@
                 </div>
                 <div class="form-group">
                     <label for="organisation_id">Organisation: </label>
-                    <select type="text" class="form-control" name="organisation_id">
-                        <option value=""> -- Select One --</option>
+                    <input id="search2" type="text"  name="search" placeholder="Search" onkeyup="filter(this.value, 'select2')">
+                    <select id="select2" size="5" type="text" class="form-control" name="organisation_id">
                         @foreach ($organisations as $organisation)
                             <option value="{{ $organisation->id }}">{{ $organisation->name }}</option>
                         @endforeach
@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label for="event_status_id">Status: </label>
                     <select type="text" class="form-control" name="event_status_id">
-                        <option value=""> -- Select One -- </option>
+                        <option value=""> -- Select One --</option>
                         <option value="1">Past</option>
                         <option value="2">Tender</option>
                         <option value="3">Upcoming</option>
@@ -79,8 +79,8 @@
                 </div>
                 <div class="form-group">
                     <label for="venue_id">Venue: </label>
-                    <select type="text" class="form-control" name="venue_id">
-                        <option value=""> -- Select One --</option>
+                    <input id="search1" type="text"  name="search" placeholder="Search" onkeyup="filter(this.value, 'select1')">
+                    <select  id="select1" size="5" type="text" class="form-control" name="venue_id">
                         @foreach ($venues as $venue)
                             <option value="{{ $venue->id }}">{{ $venue->name }}</option>
                         @endforeach
@@ -95,4 +95,15 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function filter(keyword, emilyIsANonceId) {
+            var select = document.getElementById(emilyIsANonceId);
+            for (var i = 0; i < select.length; i++) {
+                var txt = select.options[i].text;
+                var include = txt.toLowerCase().includes(keyword.toLowerCase());
+                select.options[i].style.display = include ? '':'none';
+            }
+        }
+    </script>
 @endsection
