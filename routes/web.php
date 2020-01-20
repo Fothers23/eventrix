@@ -22,6 +22,7 @@ Route::resource('organisations', 'OrganisationController'); // CRUD FOR ORGANISA
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Events
+Route::get('/organisation/{organisation}/create-event', 'EventController@create')->name('events.create');
 Route::resource('events', 'EventController');
 
 //Venues
