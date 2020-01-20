@@ -59,8 +59,13 @@
           </div>
 
           <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" name="address" value="{{ $organisation->address }}" />
+          </div>
+
+          <div class="form-group">
               <label for="city">City</label>
-              <input type="city" class="form-control" name="city" value="{{ $organisation->city }}" />
+              <input type="text" class="form-control" name="city" value="{{ $organisation->city }}" />
           </div>
 
           <div class="form-group">
@@ -69,13 +74,13 @@
           </div>
 
           <div class="form-group">
-              <label for="">Contact Name</label>
+              <label for="contact_name">Contact Name</label>
               <input type="contact_name" class="form-control" name="contact_name" value="{{ $organisation->contact_name }}" />
           </div>
 
           <div class="form-group">
               <label for="contact_email">Contact Email</label>
-              <input type="contact_email" class="form-control" name="contact_email" value="{{ $organisation->contact_email }}" />
+              <input type="email" class="form-control" name="contact_email" value="{{ $organisation->contact_email }}" />
           </div>
 
           <div class="form-group">

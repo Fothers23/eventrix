@@ -65,6 +65,11 @@
                         @endforeach
                     </select>
                 </div>
+                
+                <div class="form-group">
+                <label for="address">Address: </label>
+                <input type="text" class="form-control" name="address" placeholder="Input address here...">
+                </div>
 
                 <div class="form-group">
                     <label for="city">City</label>

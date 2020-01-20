@@ -15,6 +15,7 @@
             @if($organisation->sicDivision != null)
                 <p><b>SIC Division: </b>{{$organisation->sicDivision->name}}</p>
             @endif
+            <p><b>Address: </b>{{$organisation->address}}</p>
             <p><b>City: </b>{{$organisation->city}}</p>
             <p><b>Post Code: </b>{{$organisation->postcode}}</p>
             <p><b>Contact name: </b>{{$organisation->contact_name}}</p>
