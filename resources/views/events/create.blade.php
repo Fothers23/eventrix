@@ -25,8 +25,8 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
-                @csrf
+            <form method="POST" action="{{ route('organisations.events.store', $organisation->id) }}">
+                {{csrf_field()}}
                 <div class="form-group">
                     <input type="hidden" class="form-control" name="organisation_id" value="{{ $organisation->id }}">
                 </div>
@@ -44,15 +44,6 @@
                     <select id="select" type="text" class="form-control" name="event_type_id" size="5">
                         @foreach ($eventTypes as $eventType)
                             <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="organisation_id">Organisation: </label>
-                    <input id="search2" type="text"  name="search" placeholder="Search" onkeyup="filter(this.value, 'select2')">
-                    <select id="select2" size="5" type="text" class="form-control" name="organisation_id">
-                        @foreach ($organisations as $organisation)
-                            <option value="{{ $organisation->id }}">{{ $organisation->name }}</option>
                         @endforeach
                     </select>
                 </div>
