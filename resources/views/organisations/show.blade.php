@@ -73,18 +73,18 @@
                             {{$event->venue->city}}
                         @endif
                     </td>
-                    <th>
+                    <td>
                         @if($event->venue != null)
                             {{$event->venue->name}}
                         @endif
-                    </th>
+                    </td>
 
-                    <th>
+                    <td>
                         {{$event->start_date}}
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         {{$event->end_date}}
-                    </th>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

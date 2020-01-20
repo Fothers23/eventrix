@@ -17,8 +17,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-        return response()->json(['response' => 'success', 'events' => $events]);
+        $events = Event::paginate(100);
+        return view('events.index', compact('events'));
     }
 
     /**
