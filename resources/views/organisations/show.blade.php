@@ -11,12 +11,12 @@
             <p><b>Description: </b>{{$organisation->description}}</p>
             <p><b>Number of members: </b>{{$organisation->member_total}}</p>
             <p><b>Year Founded: </b>{{$organisation->year_founded}}</p>
-            <p><b>Website: </b>{{$organisation->website_url}}</p>
+            <p><b>Website: </b><a href="{{$organisation->website_url}}" target="_blank">{{$organisation->website_url}}</a></p>
             @if($organisation->sicDivision != null)
                 <p><b>SIC Division: </b>{{$organisation->sicDivision->name}}</p>
             @endif
             <p><b>City: </b>{{$organisation->city}}</p>
-            <p><b>Post Code: </b>{{$organisation->post_code}}</p>
+            <p><b>Post Code: </b>{{$organisation->postcode}}</p>
             <p><b>Contact name: </b>{{$organisation->contact_name}}</p>
             <p><b>Contact email: </b>{{$organisation->contact_email}}</p>
             <p><b>Contact phone number: </b>{{$organisation->contact_phone}}</p>
