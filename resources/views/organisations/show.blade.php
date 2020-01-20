@@ -15,6 +15,7 @@
             @if($organisation->sicDivision != null)
                 <p><b>SIC Division: </b>{{$organisation->sicDivision->name}}</p>
             @endif
+            <p><b>Address: </b>{{$organisation->address}}</p>
             <p><b>City: </b>{{$organisation->city}}</p>
             <p><b>Post Code: </b>{{$organisation->postcode}}</p>
             <p><b>Contact name: </b>{{$organisation->contact_name}}</p>
@@ -72,18 +73,18 @@
                             {{$event->venue->city}}
                         @endif
                     </td>
-                    <th>
+                    <td>
                         @if($event->venue != null)
                             {{$event->venue->name}}
                         @endif
-                    </th>
+                    </td>
 
-                    <th>
+                    <td>
                         {{$event->start_date}}
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         {{$event->end_date}}
-                    </th>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

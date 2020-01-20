@@ -15,3 +15,4 @@ yarn-error.log
 .env.example
 .vs/slnx.sqlite
 .vs/eventrix/v16/.suo
+.vs/VSWorkspaceState.json

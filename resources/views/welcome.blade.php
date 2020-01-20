@@ -36,6 +36,7 @@
                             <a class="nav-link active" href="#">Home</a>
                             <a class="nav-link" href="{{ route('organisations.index')}}">Organisations</a>
                             <a class="nav-link" href="{{ route('venues.index')}}">Venues</a>
+                            <a class="nav-link" href="{{ route('events.index')}}">Events</a>
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
                             <a class="nav-link" href="{{ route('register') }}">Register</a>
                         @endguest

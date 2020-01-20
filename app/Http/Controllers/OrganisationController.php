@@ -46,6 +46,7 @@ class OrganisationController extends Controller
             'website_url' => 'required',
             // 'sic_divisions_id' => 'required',
             // 'city' => 'required',
+            // 'address' => 'required',
             // 'postcode'=> 'required',
             // 'contact_name' => 'required',
             // 'contact_email' => 'required',
@@ -60,6 +61,7 @@ class OrganisationController extends Controller
             'year_founded' => $request->get('year_founded'),
             'website_url' => $request->get('website_url'),
             'sic_division_id'=> $request->get('sic_division_id'),
+            'address'=> $request->get('address'),
             'city'=> $request->get('city'),
             'postcode' => $request->get('postcode'),
             'contact_name' => $request->get('contact_name'),
@@ -130,6 +132,7 @@ class OrganisationController extends Controller
         $organisation->year_founded = $request->get('year_founded');
         $organisation->website_url = $request->get('website_url');
         $organisation->sic_division_id = $request->get('sic_division_id');
+        $organisation->address= $request->get('address');
         $organisation->city = $request->get('city');
         $organisation->postcode = $request->get('postcode');
         $organisation->contact_name = $request->get('contact_name');
