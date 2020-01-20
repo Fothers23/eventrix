@@ -95,7 +95,7 @@
                               name="research_notes">{{ old('research_notes', $event->research_notes) }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{route('organisations.show', $event->organisation->id)}}" class="btn btn-primary">Back</a>
+                <a href="{{route('events.show', $event->id)}}" class="btn btn-primary">Back</a>
             </form>
         </div>
     </div>

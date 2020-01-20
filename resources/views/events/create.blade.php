@@ -82,7 +82,7 @@
                     <textarea type="text" class="form-control" rows="5" name="research_notes"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{route('organisations.index')}}" class="btn btn-primary">Back</a>
+                <a href="{{route('organisations.show', $organisation->id)}}" class="btn btn-primary">Back</a>
             </form>
         </div>
     </div>
