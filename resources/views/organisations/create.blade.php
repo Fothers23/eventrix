@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Events</title>
+    <title>Organisations</title>
 @endsection
 
 @section('content')
@@ -58,13 +58,17 @@
 
                 <div class="form-group">
                     <label for="sic_division_id">SIC division</label>
-                    <select type="text" class="form-control" name="sic_division_id">
-                        <option value=""> -- Select One --</option>
+                    <input id="search" type="text"  name="search" placeholder="Search" onkeyup="filter(this.value, 'select')">
+                    <select id="select" size="5" type="text" class="form-control" name="sic_division_id">
                         @foreach ($sicDivisions as $sicDivision)
-                            <option value="{{ $sicDivision->id }}">{{$sicDivision->code}}
-                                : {{ $sicDivision->name }}</option>
+                            <option value="{{ $sicDivision->id }}">{{$sicDivision->code}} : {{ $sicDivision->name }}</option>
                         @endforeach
                     </select>
+                </div>
+                
+                <div class="form-group">
+                <label for="address">Address: </label>
+                <input type="text" class="form-control" name="address" placeholder="Input address here...">
                 </div>
 
                 <div class="form-group">
@@ -107,4 +111,15 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function filter(keyword, id) {
+            var select = document.getElementById(id);
+            for (var i = 0; i < select.length; i++) {
+                var txt = select.options[i].text;
+                var include = txt.toLowerCase().includes(keyword.toLowerCase());
+                select.options[i].style.display = include ? '':'none';
+            }
+        }
+    </script>
 @endsection

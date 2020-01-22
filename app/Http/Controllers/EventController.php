@@ -17,17 +17,18 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-        return response()->json(['response' => 'success', 'events' => $events]);
+        $events = Event::paginate(100);
+        return view('events.index', compact('events'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @param Organisation $organisation
-     * @return void
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create(Organisation $organisation)
+    public function create(Request $request, Organisation $organisation)
     {
         $eventTypes = EventType::all();
         $organisations = Organisation::all();
@@ -39,9 +40,9 @@ class EventController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request, Organisation $organisation)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -61,7 +62,7 @@ class EventController extends Controller
         ]);
         $event->save();
 
-        return redirect()->route('events.create')->with('success','Event added successfully');
+        return redirect()->route('events.create', $organisation->id)->with('success','Event added successfully');
     }
 
     /**

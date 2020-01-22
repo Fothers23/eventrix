@@ -27,7 +27,7 @@
             <p><b>Research Notes: </b>{{$event->research_notes}}</p>
         </div>
         <div class="row">
-            <a href="{{route('events.index')}}" class="btn btn-primary">Back</a>
+            <a href="{{route('organisations.show', $event->organisation->id)}}" class="btn btn-primary">Back</a>
             <a href="{{route('events.edit', $event->id)}}" class="btn btn-warning">Edit</a>
             <form action="{{ route('events.destroy', $event->id) }}" method="POST">
                 @csrf

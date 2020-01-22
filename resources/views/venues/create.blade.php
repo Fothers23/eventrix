@@ -60,6 +60,10 @@
                 <input type="number" class="form-control" name="floor_sqm" placeholder="Input floor space here...">
             </div>
             <div class="form-group">
+                <label for="address">Address: </label>
+                <input type="text" class="form-control" name="address" placeholder="Input address here...">
+            </div>
+            <div class="form-group">
                 <label for="city">City: </label>
                 <input type="text" class="form-control" name="city" placeholder="Input city here...">
             </div>

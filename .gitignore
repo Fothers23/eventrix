@@ -13,3 +13,6 @@ yarn-error.log
 
 .idea/*
 .env.example
+.vs/slnx.sqlite
+.vs/eventrix/v16/.suo
+.vs/VSWorkspaceState.json
