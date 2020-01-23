@@ -19,7 +19,9 @@
         <div class="row">
 
             <div class="col-12 col-md-4 col-lg-3">
-                <a href="{{route('venues.create')}}" class="btn btn-primary">Add Venue</a>
+                @auth
+                    <a href="{{route('venues.create')}}" class="btn btn-primary">Add Venue</a>
+                @endauth
             </div>
             <table class="table table-striped">
                 <thead>
@@ -32,6 +34,9 @@
                     </th>
                     <th>
                         Location
+                    </th>
+                    <th>
+                        Submitted by
                     </th>
                 </tr>
                 </thead>
@@ -46,6 +51,9 @@
                         </td>
                         <td>
                             {{$venue->city}}
+                        </td>
+                        <td>
+                            {{$venue->user->name}}
                         </td>
                     </tr>
                 @endforeach
