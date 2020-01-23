@@ -25,8 +25,11 @@
                 </div>
             @endif
             <form method="post" action="{{ route('organisations.store') }}">
-
                 {{ csrf_field() }}
+
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="user_id" value="{{Auth::user()->id}}">
+                </div>
 
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -65,7 +68,7 @@
                         @endforeach
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                 <label for="address">Address: </label>
                 <input type="text" class="form-control" name="address" placeholder="Input address here...">

@@ -31,6 +31,9 @@
         <form method="POST" action="{{ route('venues.store') }}"  enctype="multipart/form-data">
         {{csrf_field()}} <!-- cross-site forgery request -->
             <div class="form-group">
+                <input type="hidden" class="form-control" name="user_id" value="{{Auth::user()->id}}">
+            </div>
+            <div class="form-group">
                 <label for="name">Name: </label>
                 <input type="text" class="form-control" name="name" placeholder="Input name here...">
             </div>

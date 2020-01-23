@@ -35,7 +35,7 @@ class OrganisationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -68,7 +68,7 @@ class OrganisationController extends Controller
             'contact_email' => $request->get('contact_email'),
             'contact_phone' => $request->get('contact_phone'),
             'research_notes' => $request->get('research_notes'),
-
+            'user_id' => $request->get('user_id')
         ]);
 
         $organisation->save();

@@ -21,12 +21,14 @@
             <p><b>Research Notes: </b>{{$venue->research_notes}}</p>
             <div class="row">
                 <a href="{{route('venues.index')}}" class="btn btn-primary">Back</a>
-                <a href="{{route('venues.edit', $venue->id)}}" class="btn btn-warning">Edit</a>
-                <form action="{{ route('venues.destroy', $venue->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
+                @auth
+                    <a href="{{route('venues.edit', $venue->id)}}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('venues.destroy', $venue->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                @endauth
             </div>
         </div>
     </div>

@@ -33,7 +33,7 @@ class VenueController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -54,6 +54,7 @@ class VenueController extends Controller
             'city' => $request->get('city'),
             'post_code' => $request->get('post_code'),
             'research_notes' => $request->get('research_notes'),
+            'user_id' => $request->get('user_id')
         ]);
 
         $venue->save();

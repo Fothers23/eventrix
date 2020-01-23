@@ -59,6 +59,7 @@ class EventController extends Controller
             'end_date' => $request->get('end_date'),
             'event_status_id' => $request->get('event_status_id'),
             'venue_id' => $request->get('venue_id'),
+            'user_id' => $request->get('user_id')
         ]);
         $event->save();
 
@@ -108,7 +109,6 @@ class EventController extends Controller
         $event->name = $request->name;
         $event->description = $request->description;
         $event->event_type_id = $request->event_type_id;
-        $event->organisation_id = $request->organisation_id;
         $event->participants = $request->participants;
         $event->research_notes = $request->research_notes;
         $event->start_date = $request->start_date;
