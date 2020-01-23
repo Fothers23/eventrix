@@ -27,8 +27,9 @@
 
             <form method="POST" action="{{ route('organisations.events.store', $organisation->id) }}">
                 @csrf
-                <div class="form-group">
+                <div class="form-group"> <!-- hidden inputs -->
                     <input type="hidden" class="form-control" name="organisation_id" value="{{ $organisation->id }}">
+                    <input type="hidden" class="form-control" name="user_id" value="{{Auth::user()->id}}">
                 </div>
                 <div class="form-group">
                     <label for="name">Name: </label>

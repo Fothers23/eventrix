@@ -8,16 +8,16 @@ class Venue extends Model
 {
     protected $fillable = [
         'name', 'country_code', 'description', 'website_url', 'max_capacity','address',
-        'break_out_rooms_total', 'floor_sqm', 'city', 'post_code', 'research_notes'
+        'break_out_rooms_total', 'floor_sqm', 'city', 'post_code', 'research_notes', 'user_id'
     ];
 
     /*
-        Relationship: Many to Many
+        Relationship: One to Many
         Return: Collection
     */
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /*

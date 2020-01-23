@@ -41,6 +41,7 @@
                     <th>
                         End Date
                     </th>
+                    <th>Submitted by</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,12 +68,9 @@
                                 <a href="{{route('organisations.show', $event->organisation->id)}}">{{$event->organisation->name}}</a>
                             @endif
                         </td>
-                        <td>
-                            {{$event->start_date}}
-                        </td>
-                        <td>
-                            {{$event->end_date}}
-                        </td>
+                        <td>{{$event->start_date}}</td>
+                        <td>{{$event->end_date}}</td>
+                        <td>{{$event->user->name}}</td>
                     </tr>
                 @endforeach
                 </tbody>

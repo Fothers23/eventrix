@@ -39,12 +39,22 @@ class User extends Authenticatable
     ];
 
     /*
-        Relationship: Many to Many
+        Relationship: One to Many
         Return: Collection
     */
     public function venues()
     {
-        return $this->belongsToMany(Venue::class);
+        return $this->hasMany(Venue::class);
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    public function organisations()
+    {
+        return $this->hasMany(Organisation::class);
     }
 
     /*

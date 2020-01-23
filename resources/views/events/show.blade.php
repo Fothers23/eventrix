@@ -28,12 +28,14 @@
         </div>
         <div class="row">
             <a href="{{route('organisations.show', $event->organisation->id)}}" class="btn btn-primary">Back</a>
-            <a href="{{route('events.edit', $event->id)}}" class="btn btn-warning">Edit</a>
-            <form action="{{ route('events.destroy', $event->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Delete</button>
-            </form>
+            @auth
+                <a href="{{route('events.edit', $event->id)}}" class="btn btn-warning">Edit</a>
+                <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            @endauth
         </div>
     </div>
 

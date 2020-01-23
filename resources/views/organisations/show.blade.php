@@ -11,7 +11,8 @@
             <p><b>Description: </b>{{$organisation->description}}</p>
             <p><b>Number of members: </b>{{$organisation->member_total}}</p>
             <p><b>Year Founded: </b>{{$organisation->year_founded}}</p>
-            <p><b>Website: </b><a href="{{$organisation->website_url}}" target="_blank">{{$organisation->website_url}}</a></p>
+            <p><b>Website: </b><a href="{{$organisation->website_url}}"
+                                  target="_blank">{{$organisation->website_url}}</a></p>
             @if($organisation->sicDivision != null)
                 <p><b>SIC Division: </b>{{$organisation->sicDivision->name}}</p>
             @endif
@@ -24,17 +25,22 @@
             <p><b>Research Notes: </b>{{$organisation->research_notes}}</p>
             <div class="row">
                 <a href="{{route('organisations.index')}}" class="btn btn-primary">Back</a>
-                <a href="{{route('organisations.edit', $organisation->id)}}" class="btn btn-warning">Edit</a>
-                <form action="{{ route('organisations.destroy', $organisation->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
+                @auth
+                    <a href="{{route('organisations.edit', $organisation->id)}}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('organisations.destroy', $organisation->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                @endauth
             </div>
         </div>
         <hr>
         <div class="col-12 col-md-4 col-lg-3">
-            <a href="{{route('events.create', $organisation->id)}}" class="btn btn-primary">Add Organisation's event</a>
+            @auth
+                <a href="{{route('events.create', $organisation->id)}}" class="btn btn-primary">Add Organisation's
+                    event</a>
+            @endauth
         </div>
         <table class="table">
             <thead>
@@ -57,6 +63,7 @@
                 <th>
                     End Date
                 </th>
+                <th>Submitted by</th>
             </tr>
             </thead>
             <tbody>
@@ -85,6 +92,7 @@
                     <td>
                         {{$event->end_date}}
                     </td>
+                    <td>{{$event->user->name}}</td>
                 </tr>
             @endforeach
             </tbody>

@@ -8,7 +8,7 @@ class Event extends Model
 {
     protected $fillable = [
         'name', 'description', 'event_type_id', 'organisation_id', 'participants', 'research_notes',
-        'start_date', 'end_date', 'event_status_id', 'venue_id'
+        'start_date', 'end_date', 'event_status_id', 'venue_id', 'user_id'
     ];
 
     public function eventType()
@@ -37,6 +37,11 @@ class Event extends Model
     public function venue()
     {
         return $this->belongsTo(Venue::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }
