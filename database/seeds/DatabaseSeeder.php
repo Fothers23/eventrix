@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SicSectionTableSeeder::class);
         $this->call(EventTypeSeeder::class);
         $this->call(SicDivisionsTableSeeder::class);
+       
     }
 }
