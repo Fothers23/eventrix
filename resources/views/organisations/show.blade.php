@@ -76,9 +76,7 @@
                         <a href="{{route('events.show', $event->id)}}">{{$event->name}}</a>
                     </td>
                     <td>
-                        @if($event->venue != null)
-                            {{$event->venue->city}}
-                        @endif
+                        {{$event->location}}
                     </td>
                     <td>
                         @if($event->venue != null)

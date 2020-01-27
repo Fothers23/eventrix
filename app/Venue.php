@@ -8,7 +8,8 @@ class Venue extends Model
 {
     protected $fillable = [
         'name', 'country_code', 'description', 'website_url', 'max_capacity','address',
-        'break_out_rooms_total', 'floor_sqm', 'city', 'post_code', 'research_notes', 'user_id'
+        'break_out_rooms_total', 'floor_sqm', 'city', 'post_code', 'research_notes', 'user_id', 'phone_number',
+        'email'
     ];
 
     /*

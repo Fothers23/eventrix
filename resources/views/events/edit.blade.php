@@ -38,8 +38,13 @@
                               name="description">{{ old('description', $event->description) }}</textarea>
                 </div>
                 <div class="form-group">
+                    <label for="location">Location: </label>
+                    <input type="text" class="form-control" name="location" value="{{ old('location', $event->location) }}">
+                </div>
+                <div class="form-group">
                     <label for="event_type_id">Type: </label>
                     <select type="text" class="form-control" name="event_type_id">
+                        <option value="">N/A</option>
                         @if($event->eventType != null)
                         <option
                             value="{{ old('event_type_id', $event->event_type_id) }}">{{ old('event_type_id', $event->eventType->name) }}</option>
@@ -80,6 +85,7 @@
                 <div class="form-group">
                     <label for="venue_id">Venue: </label>
                     <select type="text" class="form-control" name="venue_id">
+                        <option value="">N/A</option>
                         @if($event->venue != null)
                         <option
                             value="{{ old('venue_id', $event->venue_id) }}">{{ old('venue_id', $event->venue->name) }}</option>
