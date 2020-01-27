@@ -53,6 +53,7 @@
                 <div class="form-group">
                     <label for="sic_division_id">SIC Division</label>
                     <select type="text" class="form-control" name="sic_division_id">
+                        <option value="">N/A</option>
                         @if($organisation->sicDivision != null)
                             <option value="{{ $organisation->sic_division_id }}">{{ $organisation->sicDivision->code}}
                                 : {{ $organisation->sicDivision->name}}</option>
