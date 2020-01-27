@@ -43,11 +43,12 @@
                 </div>
                 <div class="form-group">
                     <label for="event_type_id">Type: </label>
-                    <select type="text" class="form-control" name="event_type_id">
+                    <input id="search" name="search" type="text" placeholder="Search" onkeyup="filter(this.value, 'select')">
+                    <select id="select" type="text" class="form-control" name="event_type_id" size="5">
                         <option value="">N/A</option>
                         @if($event->eventType != null)
-                        <option
-                            value="{{ old('event_type_id', $event->event_type_id) }}">{{ old('event_type_id', $event->eventType->name) }}</option>
+                            <option
+                                value="{{ old('event_type_id', $event->event_type_id) }}">{{ old('event_type_id', $event->eventType->name) }}</option>
                         @endif
                         @foreach ($eventTypes as $eventType)
                             <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
@@ -55,7 +56,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-
                     <label for="participants">Number of participants: </label>
                     <input type="number" class="form-control" name="participants"
                            value="{{ old('participants', $event->participants) }}">
@@ -84,11 +84,12 @@
                 </div>
                 <div class="form-group">
                     <label for="venue_id">Venue: </label>
-                    <select type="text" class="form-control" name="venue_id">
+                    <input id="search1" type="text"  name="search" placeholder="Search" onkeyup="filter(this.value, 'select1')">
+                    <select  id="select1" size="5" type="text" class="form-control" name="venue_id">
                         <option value="">N/A</option>
                         @if($event->venue != null)
-                        <option
-                            value="{{ old('venue_id', $event->venue_id) }}">{{ old('venue_id', $event->venue->name) }}</option>
+                            <option
+                                value="{{ old('venue_id', $event->venue_id) }}">{{ old('venue_id', $event->venue->name) }}</option>
                         @endif
                         @foreach ($venues as $venue)
                             <option value="{{ $venue->id }}">{{ $venue->name }}</option>
@@ -105,4 +106,14 @@
             </form>
         </div>
     </div>
+    <script>
+        function filter(keyword, emilyIsANonceId) {
+            var select = document.getElementById(emilyIsANonceId);
+            for (var i = 0; i < select.length; i++) {
+                var txt = select.options[i].text;
+                var include = txt.toLowerCase().includes(keyword.toLowerCase());
+                select.options[i].style.display = include ? '':'none';
+            }
+        }
+    </script>
 @endsection
