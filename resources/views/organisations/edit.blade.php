@@ -49,10 +49,11 @@
                     <input type="text" class="form-control" name="website_url"
                            value="{{ $organisation->website_url }}"/>
                 </div>
-
                 <div class="form-group">
-                    <label for="sic_division_id">SIC Division</label>
-                    <select type="text" class="form-control" name="sic_division_id">
+                    <label for="sic_division_id">SIC division</label>
+                    <input id="search" type="text" name="search" placeholder="Search"
+                           onkeyup="filter(this.value, 'select')">
+                    <select id="select" size="5" type="text" class="form-control" name="sic_division_id">
                         <option value="">N/A</option>
                         @if($organisation->sicDivision != null)
                             <option value="{{ $organisation->sic_division_id }}">{{ $organisation->sicDivision->code}}
@@ -109,7 +110,16 @@
             </form>
         </div>
     </div>
-
+    <script>
+        function filter(keyword, id) {
+            var select = document.getElementById(id);
+            for (var i = 0; i < select.length; i++) {
+                var txt = select.options[i].text;
+                var include = txt.toLowerCase().includes(keyword.toLowerCase());
+                select.options[i].style.display = include ? '' : 'none';
+            }
+        }
+    </script>
 @endsection
 
 
