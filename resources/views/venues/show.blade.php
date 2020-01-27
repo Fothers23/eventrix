@@ -18,6 +18,8 @@
             <p><b>Address: </b>{{$venue->address}}</p>
             <p><b>City: </b>{{$venue->city}}</p>
             <p><b>Post Code: </b>{{$venue->post_code}}</p>
+            <p><b>Email: </b>{{$venue->email}}</p>
+            <p><b>Phone number: </b>{{$venue->post_code}}</p>
             <p><b>Research Notes: </b>{{$venue->research_notes}}</p>
             <div class="row">
                 <a href="{{route('venues.index')}}" class="btn btn-primary">Back</a>

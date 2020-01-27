@@ -75,6 +75,15 @@
                 <input type="text" class="form-control" name="post_code" placeholder="Input post code here...">
             </div>
             <div class="form-group">
+                <label for="email">Email: </label>
+                <input name="email" class="form-control" type="email"/>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">Phone number: </label>
+                <input name="phone_number" class="form-control" type="text"/>
+            </div>
+            <div class="form-group">
                 <label for="research_notes">Research notes: </label>
                 <textarea class="form-control" rows="5"
                           name="research_notes" placeholder="Input any research notes here..."></textarea>

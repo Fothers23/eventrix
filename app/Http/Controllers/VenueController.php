@@ -54,7 +54,9 @@ class VenueController extends Controller
             'city' => $request->get('city'),
             'post_code' => $request->get('post_code'),
             'research_notes' => $request->get('research_notes'),
-            'user_id' => $request->get('user_id')
+            'user_id' => $request->get('user_id'),
+            'email' => $request->get('email'),
+            'phone_number' => $request->get('phone_number')
         ]);
 
         $venue->save();
@@ -111,6 +113,8 @@ class VenueController extends Controller
         $venue->city = $request->city;
         $venue->post_code = $request->post_code;
         $venue->research_notes = $request->research_notes;
+        $venue->email = $request->email;
+        $venue->phone_number = $request->phone_number;
 
         $venue->update();
 

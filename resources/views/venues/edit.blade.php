@@ -75,6 +75,15 @@
                            value="{{ old('post_code', $venue->post_code) }}">
                 </div>
                 <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input name="email" class="form-control" type="email" value="{{ old('email', $venue->email) }}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone_number">Phone number: </label>
+                    <input name="phone_number" class="form-control" type="text" value="{{ old('phone_number', $venue->phone_number) }}"/>
+                </div>
+                <div class="form-group">
                     <label for="research_notes">Research notes: </label>
                     <textarea class="form-control" rows="5"
                               name="research_notes">{{ old('research_notes', $venue->research_notes) }}</textarea>
