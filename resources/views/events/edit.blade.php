@@ -38,6 +38,10 @@
                               name="description">{{ old('description', $event->description) }}</textarea>
                 </div>
                 <div class="form-group">
+                    <label for="location">Location: </label>
+                    <input type="text" class="form-control" name="location" value="{{ old('location', $event->location) }}">
+                </div>
+                <div class="form-group">
                     <label for="event_type_id">Type: </label>
                     <select type="text" class="form-control" name="event_type_id">
                         @if($event->eventType != null)

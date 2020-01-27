@@ -9,6 +9,7 @@
         <h1>{{$event->name}}</h1>
         <div class="col-12">
             <p><b>Description: </b>{{$event->description}}</p>
+            <p><b>Location: </b>{{$event->location}}</p>
             @if($event->eventType != null)
                 <p><b>Type: </b>{{$event->eventType->name}}</p>
             @endif

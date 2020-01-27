@@ -40,6 +40,10 @@
                     <textarea type="text" class="form-control" rows="3" name="description"></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="location">Location: </label>
+                    <input type="text" class="form-control" name="location">
+                </div>
+                <div class="form-group">
                     <label for="event_type_id">Type: </label>
                     <input id="search" name="search" type="text" placeholder="Search" onkeyup="filter(this.value, 'select')">
                     <select id="select" type="text" class="form-control" name="event_type_id" size="5">
