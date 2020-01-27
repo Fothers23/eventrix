@@ -33,29 +33,29 @@
 
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input id="name" name="name" class="element text medium" type="text" maxlength="255"/>
+                    <input id="name" name="name" class="form-control" type="text" maxlength="255"/>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea id="description" name="description" class="element textarea medium"></textarea>
+                    <textarea id="description" name="description" class="form-control"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="member_total">Member total</label>
-                    <input id="member_total" name="member_total" class="element text medium" type="text"
+                    <input id="member_total" name="member_total" class="form-control" type="text"
                            maxlength="255"/>
                 </div>
 
                 <div class="form-group">
                     <label for="year_founded">Year Founded</label>
-                    <input id="year_founded" name="year_founded" class="element text small" type="text"
+                    <input id="year_founded" name="year_founded" class="form-control" type="text"
                            maxlength="255"/>
                 </div>
 
                 <div class="form-group">
                     <label for="website_url">Website</label>
-                    <input id="website_url" name="website_url" class="element text medium" type="text"
+                    <input id="website_url" name="website_url" class="form-control" type="text"
                            maxlength="255" value="http://"/>
                 </div>
 
@@ -76,35 +76,35 @@
 
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input id="city" name="city" class="element text medium" type="text" maxlength="255"/>
+                    <input id="city" name="city" class="form-control" type="text" maxlength="255"/>
                 </div>
 
                 <div class="form-group">
                     <label for="postcode">Postcode</label>
-                    <input id="postcode" name="postcode" class="element text medium" type="text" maxlength="255"/>
+                    <input id="postcode" name="postcode" class="form-control" type="text" maxlength="255"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="contact_name">contact_name</label>
-                    <input id="contact_name" name="contact_name" class="element text medium" type="text"
+                    <label for="contact_name">Contact name: </label>
+                    <input id="contact_name" name="contact_name" class="form-control" type="text"
                            maxlength="255"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="contact_email">contact_email</label>
-                    <input id="contact_email" name="contact_email" class="element text medium" type="email"
+                    <label for="contact_email">Email: </label>
+                    <input id="contact_email" name="contact_email" class="form-control" type="email"
                            maxlength="255"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="contact_phone">contact_phone</label>
-                    <input id="contact_phone" name="contact_phone" class="element text medium" type="number"
+                    <label for="contact_phone">Phone number: </label>
+                    <input id="contact_phone" name="contact_phone" class="form-control" type="number"
                            maxlength="255"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="research_notes">research_notes</label>
-                    <textarea id="research_notes" name="research_notes" class="element textarea medium" type="text"
+                    <label for="research_notes">Research notes: </label>
+                    <textarea id="research_notes" name="research_notes" class="form-control" type="text"
                               maxlength="255"></textarea>
                 </div>
 
