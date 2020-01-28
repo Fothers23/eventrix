@@ -15,7 +15,6 @@ class EventTypeSeeder extends Seeder
     {
         EventType::create(['name'=>"Seminar"]);
         EventType::create(['name'=>"Conference"]);
-        EventType::create(['name'=>"Congress"]);
         EventType::create(['name'=>"Trade Show"]);
         EventType::create(['name'=>"Workshop"]);
         EventType::create(['name'=>"Reunion"]);
@@ -37,6 +36,7 @@ class EventTypeSeeder extends Seeder
         EventType::create(['name'=>"Press Conference"]);
         EventType::create(['name'=>"Promotional Event"]);
         EventType::create(['name'=>"Screening"]);
+        EventType::create(['name'=>"Congress"]);
         EventType::create(['name'=>"Other"]);
     }
 }
