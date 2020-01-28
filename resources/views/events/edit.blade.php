@@ -62,12 +62,12 @@
                 </div>
                 <div class="form-group">
                     <label for="start_date">Start Date: </label>
-                    <input type="datetime-local" class="form-control" name="start_date"
+                    <input type="datetime" class="form-control" name="start_date"
                            value="{{ old('start_date', $event->start_date) }}">
                 </div>
                 <div class="form-group">
                     <label for="end_date">End Date: </label>
-                    <input type="datetime-local" class="form-control" name="end_date"
+                    <input type="datetime" class="form-control" name="end_date"
                            value="{{ old('end_date', $event->end_date) }}">
                 </div>
                 <div class="form-group">
