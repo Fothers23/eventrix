@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class ExecuteSeederMigration extends Migration
+class ExecuteSeeder2Migration extends Migration
 
 {
     /**
@@ -15,6 +15,7 @@ class ExecuteSeederMigration extends Migration
      */
     public function up()
     {
+        DB::table('event_types')->truncate();
         $exitCode = Artisan::call('db:seed --class="EventTypeSeeder"');
     }
     /**
@@ -24,8 +25,6 @@ class ExecuteSeederMigration extends Migration
      */
     public function down()
     {
-       
-        DB::table('event_types')->truncate();
-        
+
     }
 }
