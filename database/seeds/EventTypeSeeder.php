@@ -15,6 +15,7 @@ class EventTypeSeeder extends Seeder
     {
         EventType::create(['name'=>"Seminar"]);
         EventType::create(['name'=>"Conference"]);
+        EventType::create(['name'=>"Congress"]);
         EventType::create(['name'=>"Trade Show"]);
         EventType::create(['name'=>"Workshop"]);
         EventType::create(['name'=>"Reunion"]);
