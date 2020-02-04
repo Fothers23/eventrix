@@ -15,7 +15,9 @@
         @auth
             <a href="{{ route('organisations.create') }}" class="btn btn-success">Add organisation</a>
         @endauth
-
+        <div class="row justify-content-center">
+            {{ $organisations->links() }}
+        </div>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -54,7 +56,9 @@
             @endforeach
             </tbody>
         </table>
-
+        <div class="row justify-content-center">
+            {{ $organisations->links() }}
+        </div>
     </div>
 
 @endsection

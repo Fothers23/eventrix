@@ -11,11 +11,11 @@ class VenueController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $venues = Venue::paginate(100);
+        $venues = Venue::orderBy('name', 'asc')->paginate(25);
         return view('venues.index', compact('venues'));
     }
 

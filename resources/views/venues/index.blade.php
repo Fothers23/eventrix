@@ -23,6 +23,9 @@
                     <a href="{{route('venues.create')}}" class="btn btn-primary">Add Venue</a>
                 @endauth
             </div>
+            <div class="row justify-content-center">
+                {{ $venues->links() }}
+            </div>
             <table class="table table-striped">
                 <thead>
                 <tr>

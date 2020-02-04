@@ -13,11 +13,11 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $events = Event::paginate(100);
+        $events = Event::orderBy('name', 'asc')->paginate(25);
         return view('events.index', compact('events'));
     }
 
