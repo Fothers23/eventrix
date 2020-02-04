@@ -11,13 +11,13 @@ class OrganisationController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $organisations = Organisation::paginate(25);
+        $organisations = Organisation::orderBy('name', 'asc')->paginate(25);
 
-        return view('organisations.index',compact('organisations'));
+        return view('organisations.index', compact('organisations'));
     }
 
     /**
