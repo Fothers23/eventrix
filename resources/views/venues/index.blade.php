@@ -5,9 +5,21 @@
 
 @section('content')
     <div class="container">
-        <div class="col-3" style="margin-bottom:20px">
-            <h1>Venues</h1>
+        <div class="row">
+            <div class="col-3" style="margin-bottom:20px">
+                <h1>Venues</h1>
+            </div>
+
+            <div class="col-9">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input class="form-control" type="search" name="q" placeholder="Search here...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
         </div>
+
         <div class="row">
             @if(session()->get('success'))
                 <div class="alert alert-success">

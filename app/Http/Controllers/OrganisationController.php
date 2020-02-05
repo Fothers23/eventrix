@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\SicDivision;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Organisation;
 
@@ -13,9 +15,19 @@ class OrganisationController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $organisations = Organisation::orderBy('name', 'asc')->paginate(25);
+        $query = Organisation::orderBy('name', 'asc');
+
+        // Filters index based on Organisation name and User name
+        if ($searchTerm = $request->query('q'))
+        {
+            $query->where('name', 'LIKE', "%{$searchTerm}%")->orWhereHas('user', function (Builder $subquery) use ($searchTerm) {
+                $subquery->where('name', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+
+        $organisations = $query->paginate(25);
 
         return view('organisations.index', compact('organisations'));
     }
@@ -86,7 +98,7 @@ class OrganisationController extends Controller
     {
         $organisation = Organisation::findOrFail($id);
 
-        return view('/organisations/show', compact('organisation'));
+        return view('organisations.show', compact('organisation'));
     }
 
     /**
