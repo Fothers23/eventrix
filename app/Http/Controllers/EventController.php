@@ -7,6 +7,7 @@ use App\EventType;
 use App\Organisation;
 use App\Venue;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class EventController extends Controller
 {
@@ -15,9 +16,23 @@ class EventController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::orderBy('name', 'asc')->paginate(25);
+        $query = Event::orderBy('name', 'asc');
+
+        // Filters index based on Event name, Venue name, Organisation name and User name
+        if ($searchTerm = $request->query('q')) {
+
+            $query->where('name', 'LIKE', "%{$searchTerm}%")->orwhereHas('organisation', function (Builder $subquery) use ($searchTerm) {
+                $subquery->where('name', 'LIKE', "%{$searchTerm}%");
+            })->orWhereHas('user', function (Builder $subquery) use ($searchTerm) {
+                $subquery->where('name', 'LIKE', "%{$searchTerm}%");
+            })->orWhereHas('venue', function (Builder $subquery) use ($searchTerm) {
+                $subquery->where('name', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+        $events = $query->paginate(25);
+
         return view('events.index', compact('events'));
     }
 
@@ -39,7 +54,7 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request, Organisation $organisation)
@@ -64,7 +79,7 @@ class EventController extends Controller
         ]);
         $event->save();
 
-        return redirect()->route('events.create', $organisation->id)->with('success','Event added successfully');
+        return redirect()->route('events.create', $organisation->id)->with('success', 'Event added successfully');
     }
 
     /**
@@ -97,8 +112,8 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Event  $event
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Event $event
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Event $event)
@@ -120,19 +135,19 @@ class EventController extends Controller
 
         $event->update();
 
-        return redirect()->route('events.index')->with('success','Event updated successfully');
+        return redirect()->route('events.index')->with('success', 'Event updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Event  $event
+     * @param \App\Event $event
      * @return \Illuminate\Http\Response
      */
     public function destroy(Event $event)
     {
         $event->delete();
 
-        return redirect()->route('events.index')->with('success','Event deleted successfully');
+        return redirect()->route('events.index')->with('success', 'Event deleted successfully');
     }
 }

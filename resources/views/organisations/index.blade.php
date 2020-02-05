@@ -6,6 +6,21 @@
 
 @section('content')
     <div class="container">
+        <div class="row">
+            <div class="col-3" style="margin-bottom:20px">
+                <h1>Organisations</h1>
+            </div>
+
+            <div class="col-9">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input class="form-control" type="search" name="q" placeholder="Search here...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+
         @if(session()->get('success'))
 
             <div class="alert alert-success">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Venue;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,9 +14,20 @@ class VenueController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $venues = Venue::orderBy('name', 'asc')->paginate(25);
+        $query = Venue::orderBy('name', 'asc');
+
+        // Filters index based on Organisation name and User name
+        if ($searchTerm = $request->query('q'))
+        {
+            $query->where('name', 'LIKE', "%{$searchTerm}%")->orWhereHas('user', function (Builder $subquery) use ($searchTerm) {
+                $subquery->where('name', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+
+        $venues = $query->paginate(25);
+
         return view('venues.index', compact('venues'));
     }
 
