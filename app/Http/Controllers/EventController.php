@@ -91,6 +91,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
+        $event->setEventStatus();
         return view('events.show', compact('event'));
     }
 
