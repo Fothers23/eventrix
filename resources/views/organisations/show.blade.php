@@ -80,7 +80,7 @@
                     </td>
                     <td>
                         @if($event->venue != null)
-                            {{$event->venue->name}}
+                            <a href="{{route('venues.show', $event->venue->id)}}">{{$event->venue->name}}</a>
                         @endif
                     </td>
 
