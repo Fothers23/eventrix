@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('title')
+    <link href="{{ asset('styles/backToTopBtn.css') }}" rel="stylesheet">
+
     <title>Events</title>
 @endsection
 
@@ -96,30 +98,8 @@
         </div>
     </div>
 
-    {{--    TODO: PUT IN ITS OWN CSS FILE, INSIDE - PUBLIC.STYLES--}}
-    <style>
-        #myBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed/sticky position */
-            bottom: 20px; /* Place the button at the bottom of the page */
-            right: 30px; /* Place the button 30px from the right */
-            z-index: 99; /* Make sure it does not overlap */
-            border: none; /* Remove borders */
-            outline: none; /* Remove outline */
-            background-color: rebeccapurple; /* Set a background color */
-            color: white; /* Text color */
-            cursor: pointer; /* Add a mouse pointer on hover */
-            padding: 15px; /* Some padding */
-            border-radius: 10px; /* Rounded corners */
-            font-size: 18px; /* Increase font size */
-        }
 
-        #myBtn:hover {
-            background-color: purple; /* Add a dark-grey background on hover */
-        }
-    </style>
-
-    {{--    TODO PUT IN ITS OWN JS FILE, INSIDE - /RESOURCES/JS--}}
+    {{--    TODO PUT IN ITS OWN JS FILE, INSIDE - /RESOURCES/JS - USED IN EVENTS/ORGS/VENUES INDEX & ORGS SHOW --}}
     <script>
         //Get the button:
         mybutton = document.getElementById("myBtn");
