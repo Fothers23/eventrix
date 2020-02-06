@@ -17,7 +17,7 @@ class Organisation extends Model
     */
     public function events()
     {
-        return $this->hasMany(Event::class);
+        return $this->hasMany(Event::class)->orderBy('name');
     }
 
     public function sicDivision()

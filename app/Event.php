@@ -44,4 +44,14 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function setEventStatus()
+    {
+        if (now() > $this->start_date)
+        {
+            $this->event_status_id = 1; // set to past
+            $this->update();
+        }
+
+    }
+
 }

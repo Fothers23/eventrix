@@ -93,8 +93,8 @@
     </div>
 
     <script>
-        function filter(keyword, emilyIsANonceId) {
-            var select = document.getElementById(emilyIsANonceId);
+        function filter(keyword, id) {
+            var select = document.getElementById(id);
             for (var i = 0; i < select.length; i++) {
                 var txt = select.options[i].text;
                 var include = txt.toLowerCase().includes(keyword.toLowerCase());
