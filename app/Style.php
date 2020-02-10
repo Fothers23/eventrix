@@ -14,8 +14,8 @@ class Style extends Model
        Relationship: One to Many
        Return: Collection
    */
-    public function capRoomStyle()
+    public function rooms()
     {
-        return $this->hasMany(CapRoomStyle::class);
+        return $this->hasMany(Room::class);
     }
 }
