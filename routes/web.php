@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Rooms
+Route::get('/venue/{venue}/rooms/create', 'RoomController@create')->name('rooms.create');
+Route::post('/venue/{venue}/rooms', 'RoomController@store')->name('venues.rooms.store');
+Route::resource('rooms', 'RoomController')->except(['create', 'store']);
+
 //Events
 Route::get('/organisation/{organisation}/events/create', 'EventController@create')->name('events.create');
 Route::post('/organisation/{organisation}/events', 'EventController@store')->name('organisations.events.store');
