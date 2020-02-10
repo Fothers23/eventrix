@@ -75,11 +75,11 @@ class RoomController extends Controller
      * @param  \App\odel  $odel
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Venue $venue)
     {
         $room = Room::findOrFail($id);
         $styles = Style::all();
-        return view('rooms.edit', compact('room','styles'));
+        return view('rooms.edit', compact('room','styles','venue'));
     }
 
     /**
@@ -98,12 +98,11 @@ class RoomController extends Controller
         $room->name = $request->name;
         $room->total_area = $request->total_area;
         $room->capacity = $request->capacity;
-        $room->venue_id = $request->venue_id;
         $room->style_id = $request->style_id;
 
         $room->update();
 
-        return redirect()->route('venues.show', $venue->id)->with('success', 'Room updated successfully');
+        return redirect()->route('venues.index')->with('success', 'Room updated successfully');
     }
 
     /**
@@ -115,6 +114,6 @@ class RoomController extends Controller
     public function destroy(Room $room)
     {
         $room->delete();
-        return redirect()->route('venues.show', $venue->id)->with('success', 'Room deleted successfully');
+        return redirect()->route('venues.show', $room->venue_id)->with('success', 'Room deleted successfully');
     }
 }

@@ -21,10 +21,10 @@
             @endif
             @if(\Session::has('success'))
                 <div class="alert alert-success">
-                    <p>{{\Session::get('success')}}</p>
+                    <p>{{Session::get('success')}}</p>
                 </div>
             @endif
-            <form method="post" action="{{ route('rooms.store') }}">
+            <form method="post" action="{{ route('venues.rooms.store', $venue->id) }}">
                 {{ csrf_field() }}
 
                 <div class="form-group">

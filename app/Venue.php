@@ -27,7 +27,7 @@ class Venue extends Model
    */
     public function rooms()
     {
-        return $this->hasMany(Room::class)->with('styles');
+        return $this->hasMany(Room::class)->with('style');
     }
 
     /*

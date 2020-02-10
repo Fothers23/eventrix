@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div style="margin-bottom:10px">
-            <h1>Add Room</h1>
+            <h1>Edit Room</h1>
         </div>
         <div class="col-8">
             @if(count($errors) > 0)
@@ -26,6 +26,7 @@
             @endif
             <form method="post" action="{{ route('rooms.update', $room->id) }}">
                 {{ csrf_field() }}
+                @method('PUT')
 
                 <div class="form-group">
                     <input type="hidden" class="form-control" name="venue_id" value="{{ $venue->id }}">

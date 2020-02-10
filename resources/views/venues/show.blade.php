@@ -5,7 +5,17 @@
 @endsection
 
 @section('content')
+
     <div class="container">
+
+        <div class="row">
+            @if(session()->get('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div><br/>
+            @endif
+        </div>
+
         <h1>{{$venue->name}}</h1>
         <div class="col-12">
             <p><b>Description: </b>{{$venue->description}}</p>
