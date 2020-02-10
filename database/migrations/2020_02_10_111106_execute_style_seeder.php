@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateRoomTableWithCapacity extends Migration
+class ExecuteStyleSeeder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class UpdateRoomTableWithCapacity extends Migration
      */
     public function up()
     {
-        Schema::table('rooms', function (Blueprint $table) {
-            $table->integer('capacity')->nullable();
-            $table->bigInteger('style_id')->nullable();
-        });
+        DB::table('styles')->truncate();
+        $exitCode = Artisan::call('db:seed --class="StyleTableSeeder"');
     }
 
     /**
@@ -26,8 +24,6 @@ class UpdateRoomTableWithCapacity extends Migration
      */
     public function down()
     {
-        Schema::table('rooms', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }
