@@ -43,4 +43,18 @@ class Venue extends Model
     {
         return $this->hasMany(Event::class);
     }
+
+    public function numOfRooms()
+    {
+        return $this->rooms()->count();
+    }
+
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($organisation) { // before delete() method call this
+            $organisation->events()->each(function($event) {
+                $event->delete(); //direct deletion
+            });
+        });
+    }
 }
