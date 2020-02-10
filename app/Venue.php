@@ -51,9 +51,9 @@ class Venue extends Model
 
     public static function boot() {
         parent::boot();
-        self::deleting(function($organisation) { // before delete() method call this
-            $organisation->events()->each(function($event) {
-                $event->delete(); //direct deletion
+        self::deleting(function($venue) { // before delete() method call this
+            $venue->rooms()->each(function($room) {
+                $room->delete(); //direct deletion
             });
         });
     }
