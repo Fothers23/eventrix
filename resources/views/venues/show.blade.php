@@ -5,7 +5,17 @@
 @endsection
 
 @section('content')
+
     <div class="container">
+
+        <div class="row">
+            @if(session()->get('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div><br/>
+            @endif
+        </div>
+
         <h1>{{$venue->name}}</h1>
         <div class="col-12">
             <p><b>Description: </b>{{$venue->description}}</p>
@@ -32,6 +42,43 @@
                     </form>
                 @endauth
             </div>
+
+            <div class="col-12 col-md-4 col-lg-3">
+                @auth
+                    <a href="{{route('rooms.create', $venue->id)}}" class="btn btn-primary">Add Venue's room</a>
+                @endauth
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Total Area</th>
+                        <th>Room Style</th>
+                        <th>Capacity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach($venue->rooms as $room)
+                    <tr>
+                        <td>
+                            <a href="{{route('rooms.show', $room->id)}}">{{$room->name}}</a>
+                        </td>
+                        <td>{{$room->total_area}}</td>
+
+                        <td>
+                            @if($room->style != null)
+                                <p>{{$room->style->name}}</p>
+                            @endif
+                        </td>
+
+                        <td>
+                            {{$room->capacity}}
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+
         </div>
     </div>
 @endsection
