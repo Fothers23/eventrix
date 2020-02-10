@@ -47,7 +47,7 @@
                     <input id="search" type="text"  name="search" placeholder="Search" onkeyup="filter(this.value, 'select')">
                     <select id="select" size="5" type="text" class="form-control" name="style_id">
                         @foreach ($styles as $style)
-                            <option value="{{ $style->id }}">{{$style->code}} : {{ $style->name }}</option>
+                            <option value="{{ $style->id }}">{{ $style->name }}</option>
                         @endforeach
                     </select>
                 </div>
