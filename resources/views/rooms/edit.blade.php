@@ -50,7 +50,7 @@
                                 value="{{ old('style_id', $room->style_id) }}">{{ old('style_id', $room->style->name) }}</option>
                         @endif
                         @foreach ($styles as $style)
-                            <option value="{{ $style->id }}">{{$style->code}} : {{ $style->name }}</option>
+                            <option value="{{ $style->id }}">{{ $style->name }}</option>
                         @endforeach
                     </select>
                 </div>
