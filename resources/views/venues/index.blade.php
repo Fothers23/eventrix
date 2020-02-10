@@ -43,35 +43,23 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Location
-                    </th>
-                    <th>
-                        Submitted by
-                    </th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Number of Rooms</th>
+                    <th>Submitted by</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($venues as $venue)
                     <tr>
-                        <td>
-                            {{$venue->id}}
-                        </td>
+                        <td>{{$venue->id}}</td>
                         <td>
                             <a href="{{route('venues.show', $venue->id)}}">{{$venue->name}}</a>
                         </td>
-                        <td>
-                            {{$venue->city}}
-                        </td>
-                        <td>
-                            {{$venue->user->name}}
-                        </td>
+                        <td>{{$venue->city}}</td>
+                        <td>{{$venue->numOfRooms()}}</td>
+                        <td>{{$venue->user->name}}</td>
                     </tr>
                 @endforeach
                 </tbody>
