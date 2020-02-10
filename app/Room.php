@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     protected $fillable = [
-        'name', 'max_height', 'total_area', 'dimensions', 
+        'name', 'max_height', 'total_area', 'dimensions', 'capacity'
     ];
 
     /*
         Relationship: One to Many
         Return: Collection
     */
-    public function venue() 
+    public function venue()
     {
         return $this->belongsTo(Venue::class);
     }
@@ -23,8 +23,8 @@ class Room extends Model
         Relationship: One to Many
         Return: Collection
     */
-    public function capRoomStyles() 
+    public function style()
     {
-        return $this->hasMany(CapRoomStyle::class);
+        return $this->belongsTo(Style::class);
     }
 }
