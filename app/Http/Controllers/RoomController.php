@@ -38,7 +38,7 @@ class RoomController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Venue $venue)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -50,7 +50,7 @@ class RoomController extends Controller
             'capacity' => $request->get('capacity'),
             'venue_id' => $request->get('venue_id'),
             'style_id' => $request->get('style_id'),
-            
+
         ]);
         $room->save();
 
