@@ -27,7 +27,7 @@ class Venue extends Model
    */
     public function rooms()
     {
-        return $this->hasMany(Room::class)->with('capRoomStyles');
+        return $this->hasMany(Room::class)->with('style');
     }
 
     /*
@@ -42,5 +42,19 @@ class Venue extends Model
     public function events()
     {
         return $this->hasMany(Event::class);
+    }
+
+    public function numOfRooms()
+    {
+        return $this->rooms()->count();
+    }
+
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($venue) { // before delete() method call this
+            $venue->rooms()->each(function($room) {
+                $room->delete(); //direct deletion
+            });
+        });
     }
 }
